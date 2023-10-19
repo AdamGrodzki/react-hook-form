@@ -1,0 +1,33 @@
+.form {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.absoluteTop {
+    position: absolute;
+    top: 7rem;
+    right: 34rem;
+    color: white;
+}
+
+.cardLogo {
+    background-color: black;
+}
+
+.iconComplete {
+    width: 24;
+    padding-top: 12px;
+}
+
+.btn {
+    background-color: #21092f;
+    height: 8;
+    margin: 8;
+    color: white;
+    border-radius: 5px;
+}
