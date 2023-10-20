@@ -7,7 +7,7 @@ export const BackCard = () => {
 
   return (
     <div className={styles.backCardContainer}>
-      <div>
+      <div className={styles.backCardSubcontainer}>
         <Image className={styles.backCardBg} src={backCard} alt="back card" />
         <div className={styles.backCardCvc}>{cardCVCDefault}</div>
       </div>

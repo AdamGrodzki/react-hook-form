@@ -6,7 +6,7 @@
     position: absolute;
 }
 
-.backCardContainer {
+.backCardSubcontainer {
     position: relative;
     width: 100%;
     height: 100%;
@@ -21,6 +21,21 @@
 .backCardCvc {
     color: $white;
     font-size: 14px;
+    letter-spacing: 14px * .14;
+    position: absolute;
+    top: 112px;
+    right: 60px;
+}
 
+@media (max-width: 1000px) {
+    .backCardContainer {
+        width: 286px;
+        height: 157px;
+    }
 
+    .backCardCvc{
+        top: 70px;
+        right: 40px;
+        font-size: 10px;
+    }
 }
