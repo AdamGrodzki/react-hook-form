@@ -1,0 +1,26 @@
+@import "../../styles/variables.scss";
+
+.backCardContainer {
+    width: 447px;
+    height: 245px;
+    position: absolute;
+}
+
+.backCardContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.backCardBg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.backCardCvc {
+    color: $white;
+    font-size: 14px;
+
+
+}
