@@ -1,0 +1,71 @@
+@import '/styles/variables.scss';
+
+.form {
+    position: absolute;
+    display: flex;
+    top: 2px;
+    right: 10px;
+    flex-direction: column;
+
+}
+
+.inputCardholderName {
+    padding: 13px;
+    border: 1px solid #8e8593;
+    border-radius: 7px;
+    margin-bottom: 5px;
+}
+
+.inputCardNumber {
+    padding: 13px;
+    border: 1px solid #8e8593;
+    border-radius: 7px;
+    margin-bottom: 5px;
+}
+
+.labelCVC{
+    font-weight: bold;
+    margin-bottom: 16px;
+    gap: 14px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    color: #21092f ;
+    font-size: 15px;
+}
+
+
+.expMM {
+    padding: 13px;
+    border: 1px solid #8e8593;
+    border-radius: 7px;
+    width: 60px;
+    display: flex;
+    text-align: start;
+    margin-bottom: 5px;
+}
+
+.expYY {
+    padding: 13px;
+    border: 1px solid #8e8593;
+    border-radius: 7px;
+    width: 60px;
+    display: flex;
+    text-align: start;
+}
+
+.inputCVC {
+    padding: 13px;
+    border: 1px solid #8e8593;
+    border-radius: 7px;
+    margin-bottom: 5px;
+}
+
+.btnSubmit {    
+    background: #21092f;
+    border: none;
+    padding: 15px 20px;
+    color: $white;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 18px;}
