@@ -3,8 +3,15 @@
 import Image from "next/image";
 import styles from "@/view/Form/form.module.scss";
 
-import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import cx from "clsx";
+
+import {
+  FieldErrors,
+  SubmitHandler,
+  UseFormHandleSubmit,
+  UseFormRegister,
+  useForm,
+} from "react-hook-form";
 
 interface IFormInput {
   cardHolderName: string;
@@ -14,42 +21,66 @@ interface IFormInput {
   CVC: number;
 }
 
+interface Props {
+  register: UseFormRegister<IFormInput>;
+  handleSubmit: UseFormHandleSubmit<IFormInput>;
+  errors: FieldErrors<IFormInput>;
+}
+
 export const Form = () => {
-  const { register, handleSubmit } = useForm<IFormInput>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  console.log(watch("cardHolderName"));
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <label className={styles.labelCardholderName}>CARDHOLDER NAME</label>
         <input
-          className={styles.inputCardholderName}
+          className={cx(styles.inputCardholderName, {
+            [styles.invalid]: errors.cardHolderName,
+          })}
           placeholder="e.g. Jane Aplleseed"
-          {...register("cardHolderName")}
+          {...register("cardHolderName", { required: true })}
         />
         <label className={styles.labelCardNumber}>CARD NUMBER</label>
         <input
-          className={styles.inputCardNumber}
+          className={cx(styles.inputCardNumber, {
+            [styles.invalid]: errors.cardHolderName,
+          })}
           placeholder="e.g. 1234 5678 9123 0000"
-          {...register("cardNumber")}
+          {...register("cardNumber", { required: true })}
         />
         <label className={styles.expDate}>EXP.DATE(MM/YY) </label>
         <input
-          className={styles.expMM}
+          className={cx(styles.expMM, {
+            [styles.invalid]: errors.cardHolderName,
+          })}
           placeholder="MM"
-          {...register("expDateMM")}
+          {...register("expDateMM", { required: true })}
         />
         <input
-          className={styles.expYY}
+          className={cx(styles.expYY, {
+            [styles.invalid]: errors.cardHolderName,
+          })}
           placeholder="YY"
-          {...register("expDateYY")}
+          {...register("expDateYY", { required: true })}
         />
         <label className={styles.labelCVC}>CVC</label>
         <input
-          className={styles.inputCVC}
+          className={cx(styles.inputCVC, {
+            [styles.invalid]: errors.cardHolderName,
+          })}
           placeholder="e.g. 123"
-          {...register("CVC")}
+          {...register("CVC", { required: true })}
         />
-        <input className={styles.btnSubmit} type="submit" value="Confirm" />
+        <button className={styles.btnSubmit} type="submit">
+          Confirm
+        </button>
       </form>
     </>
   );

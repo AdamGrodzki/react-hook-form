@@ -1,7 +1,6 @@
 @import '/styles/variables.scss';
 
 .form {
-    position: absolute;
     display: flex;
     top: 2px;
     right: 10px;
@@ -69,3 +68,12 @@
     cursor: pointer;
     border-radius: 6px;
     font-size: 18px;}
+
+.invalid {
+    border-color: red;
+    
+}
+.invalid:focus {
+border-color: yellow;
+}
+
