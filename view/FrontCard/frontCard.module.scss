@@ -1,16 +1,19 @@
 @import "../../styles/variables.scss";
 
 .frontCardContainer {
+    // position: relative;
+    // width: 447px;
+    // height: 245px;
+    // padding: 30px;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // grid-template-rows: 1fr;
+    // grid-template-areas: 'number number' 'name exp';
+    // grid-gap: 25px;
+    // z-index: 1;
     width: 447px;
     height: 245px;
-    padding: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: 'number number' 'name exp';
-    grid-gap: 25px;
-    z-index: 1;
-
+    
     &::before {
         content: '';
         width: 47px;
@@ -24,7 +27,7 @@
     }
 
     &::after {
-        content: '';
+        content: "";
         width: 21px;
         height: 21px;
         border-radius: 50%;
@@ -62,45 +65,45 @@ align-items: flex-end;
     letter-spacing: 14px * .14;
 }
 
-.frontCardName {
-    grid-area: name ;
-}
+// .frontCardName {
+//     grid-area: name ;
+// }
 
-.frontCardExp {
-    grid-area: exp;
-    text-align: end;
-}
+// .frontCardExp {
+//     grid-area: exp;
+//     text-align: end;
+// }
 
-@media (max-width: 1000px) {
-	.frontCardContainer {
-		width: 286px;
-		height: 157px;
-		padding: 18px 23px 23px 20px;
-		grid-gap: 15px;
+// @media (max-width: 1000px) {
+// 	.frontCardContainer {
+// 		width: 286px;
+// 		height: 157px;
+// 		padding: 18px 23px 23px 20px;
+// 		grid-gap: 15px;
 
-		&::before {
-			width: 30px;
-			height: 30px;
-			top: 18px;
-			left: 20px;
-		}
+// 		&::before {
+// 			width: 30px;
+// 			height: 30px;
+// 			top: 18px;
+// 			left: 20px;
+// 		}
 
-		&::after {
-			width: 14px;
-			height: 14px;
-			top: 26px;
-			left: 60px;
-		}
-	}
+// 		&::after {
+// 			width: 14px;
+// 			height: 14px;
+// 			top: 26px;
+// 			left: 60px;
+// 		}
+// 	}
 
-	.frontCardNumber {
-		font-size: 18px;
-		letter-spacing: 18px * 0.12;
-	}
+// 	.frontCardNumber {
+// 		font-size: 18px;
+// 		letter-spacing: 18px * 0.12;
+// 	}
 
-	.frontCardName,
-	.frontCardExp {
-		font-size: 10px;
-		letter-spacing: 10px * 0.08;
-	}
-}
+// 	.frontCardName,
+// 	.frontCardExp {
+// 		font-size: 10px;
+// 		letter-spacing: 10px * 0.08;
+// 	}
+// }

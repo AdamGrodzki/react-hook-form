@@ -39,7 +39,7 @@ export const Form = () => {
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <label className={styles.labelCardholderName}>CARDHOLDER NAME</label>
+        <label className={styles.labelCardholderName}>Cardholder Name</label>
         <input
           className={cx(styles.inputCardholderName, {
             [styles.invalid]: errors.cardHolderName,
@@ -47,7 +47,7 @@ export const Form = () => {
           placeholder="e.g. Jane Aplleseed"
           {...register("cardHolderName", { required: true })}
         />
-        <label className={styles.labelCardNumber}>CARD NUMBER</label>
+        <label className={styles.labelCardNumber}>Card Number</label>
         <input
           className={cx(styles.inputCardNumber, {
             [styles.invalid]: errors.cardHolderName,
@@ -55,7 +55,7 @@ export const Form = () => {
           placeholder="e.g. 1234 5678 9123 0000"
           {...register("cardNumber", { required: true })}
         />
-        <label className={styles.expDate}>EXP.DATE(MM/YY) </label>
+        <label className={styles.expDate}>Exp. Date (MM/YY) </label>
         <input
           className={cx(styles.expMM, {
             [styles.invalid]: errors.cardHolderName,
