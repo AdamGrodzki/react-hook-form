@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import styles from "@/view/Form/form.module.scss";
+import { ChangeEvent } from "react";
 
 import cx from "clsx";
 
@@ -11,6 +12,7 @@ import {
   UseFormHandleSubmit,
   UseFormRegister,
   useForm,
+  useFormContext,
 } from "react-hook-form";
 
 interface IFormInput {
@@ -20,6 +22,21 @@ interface IFormInput {
   expDateYY: number;
   CVC: number;
 }
+
+// const {
+//   cardHolderName,
+//   setCardHolderName,
+//   cardNumber,
+//   setCardNumber,
+//   expDateMM,
+//   setExpDateMM,
+//   expDateYY,
+//   setExpDateYY,
+//   confirmed,
+//   setConfirmed,
+//   CVC,
+//   setCVC,
+// } = useFormContext();
 
 interface Props {
   register: UseFormRegister<IFormInput>;
@@ -31,11 +48,21 @@ export const Form = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
     watch,
   } = useForm<IFormInput>();
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
   console.log(watch("cardHolderName"));
+  console.log(watch("cardNumber"));
+  console.log(watch("expDateMM"));
+  console.log(watch("expDateYY"));
+  console.log(watch("CVC"));
+
+  const handleCardHolderName = (e: ChangeEvent<HTMLInputElement>) => {
+    // setCardHolderName(e.target.value);
+  };
+
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -44,6 +71,7 @@ export const Form = () => {
           className={cx(styles.inputCardholderName, {
             [styles.invalid]: errors.cardHolderName,
           })}
+          // onChange={handleCardHolderName}
           placeholder="e.g. Jane Aplleseed"
           {...register("cardHolderName", { required: true })}
         />
@@ -53,6 +81,7 @@ export const Form = () => {
             [styles.invalid]: errors.cardHolderName,
           })}
           placeholder="e.g. 1234 5678 9123 0000"
+          maxLength={19}
           {...register("cardNumber", { required: true })}
         />
         <label className={styles.expDate}>Exp. Date (MM/YY) </label>
@@ -61,6 +90,7 @@ export const Form = () => {
             [styles.invalid]: errors.cardHolderName,
           })}
           placeholder="MM"
+          maxLength={2}
           {...register("expDateMM", { required: true })}
         />
         <input
@@ -68,6 +98,7 @@ export const Form = () => {
             [styles.invalid]: errors.cardHolderName,
           })}
           placeholder="YY"
+          maxLength={2}
           {...register("expDateYY", { required: true })}
         />
         <label className={styles.labelCVC}>CVC</label>
@@ -76,6 +107,7 @@ export const Form = () => {
             [styles.invalid]: errors.cardHolderName,
           })}
           placeholder="e.g. 123"
+          maxLength={3}
           {...register("CVC", { required: true })}
         />
         <button className={styles.btnSubmit} type="submit">

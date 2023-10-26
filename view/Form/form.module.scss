@@ -1,11 +1,15 @@
 @import '/styles/variables.scss';
 
 .form {
-    display: flex;
-    width: 50%;
-    top: 2px;
-    right: 10px;
-    flex-direction: column;
+    // display: flex;
+    // width: 50%;
+    // top: 2px;
+    // right: 10px;
+    // flex-direction: column;
+    width: 400px;
+    height: 300px;
+    background-color: transparent;
+    display: block;
 }
 
 .labelCardholderName {

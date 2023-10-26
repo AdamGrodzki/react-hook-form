@@ -6,7 +6,7 @@ import styles from "@/view/FrontCard/frontCard.module.scss";
 import { useFormContext } from "react-hook-form";
 
 export const FrontCard = () => {
-  //   const { cardNumber, cardName, cardMonthExp, cardYearExp };
+    // const { cardNumber, cardName, cardMonthExp, cardYearExp };
 
   const cardNumberDefault = "0000 0000 0000 0000";
   const cardNameDefault = "Jane Appleseed";
