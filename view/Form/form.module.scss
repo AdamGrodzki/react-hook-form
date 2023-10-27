@@ -38,7 +38,6 @@
 }
 
 .expDate {
-    display: block;
     margin-bottom: 0.5rem;
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -55,7 +54,6 @@
 }
 
 .labelCVC{
-    display: block;
     margin-bottom: 0.5rem;
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -103,6 +101,9 @@
     outline: none;
     transition: all 500ms ease 0s;
     width: 100%;
+    &:disabled {
+        opacity: 0.5;
+    }
 }
 
 .invalid {
@@ -111,5 +112,5 @@
     &:focus {
     border-color: yellow;
     }
-
+   
 }    
