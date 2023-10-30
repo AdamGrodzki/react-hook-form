@@ -9,8 +9,6 @@ import {
   SubmitHandler,
   UseFormHandleSubmit,
   UseFormRegister,
-  useForm,
-  useFormContext,
 } from "react-hook-form";
 
 import { IFormInput } from "@/app/page";
@@ -36,7 +34,10 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
             [styles.invalid]: errors.cardHolderName,
           })}
           {...register("cardHolderName", {
-            required: true,
+            required: {
+              value: true,
+              message: "Can't be blank",
+            },
             maxLength: 20,
           })}
         />
@@ -48,8 +49,13 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
             [styles.invalid]: errors.cardHolderName,
           })}
           {...register("cardNumber", {
-            required: true,
             maxLength: 19,
+            // valueAsNumber: true,
+            required: { value: true, message: "Can't be blank" },
+            minLength: {
+              value: 19,
+              message: "min length is 12",
+            },
           })}
         />
         <label className={styles.expDate}>Exp. Date (MM/YY) </label>
@@ -65,6 +71,10 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
             required: true,
             maxLength: 2,
             valueAsNumber: true,
+            minLength: {
+              value: 2,
+              message: "min length is 2",
+            },
           })}
         />
         <input
@@ -74,7 +84,15 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
           className={cx(styles.expYY, {
             [styles.invalid]: errors.cardHolderName,
           })}
-          {...register("expDateYY", { required: true, maxLength: 2 })}
+          {...register("expDateYY", {
+            required: true,
+            valueAsNumber: true,
+            maxLength: 2,
+            minLength: {
+              value: 2,
+              message: "min length is 2",
+            },
+          })}
         />
         <label className={styles.labelCVC}>CVC</label>
         <input
@@ -85,7 +103,9 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
           })}
           {...register("CVC", {
             required: true,
+            valueAsNumber: true,
             maxLength: 3,
+            minLength: { value: 3, message: "min length is 3" },
           })}
         />
         <button className={styles.btnSubmit} type="submit" disabled={!isValid}>

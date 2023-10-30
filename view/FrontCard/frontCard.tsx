@@ -14,7 +14,13 @@ interface Props {
 export const FrontCard = ({ number, name, expMonth, expYear }: Props) => {
   return (
     <div className={styles.frontCardContainer}>
-      <Image className={styles.frontCardBg} src={frontCard} alt="front card" />
+      <Image
+        className={styles.frontCardBg}
+        src={frontCard}
+        priority={true}
+        // why priority
+        alt="front card"
+      />
       <p className={styles.frontCardNumber}>
         {number ?? "0000 0000 0000 0000"}
       </p>

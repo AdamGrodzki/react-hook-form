@@ -8,6 +8,7 @@ import bgMainMobile from "@/images/bg-main-mobile.png";
 
 import { Form } from "@/view/Form/form";
 import Image from "next/image";
+import styles from "@/app/page.module.scss";
 import { useForm } from "react-hook-form";
 
 export interface IFormInput {
@@ -24,12 +25,16 @@ export default function Home() {
     handleSubmit,
     formState: { errors, isValid },
     watch,
-  } = useForm<IFormInput>();
+  } = useForm<IFormInput>({
+    defaultValues: { expDateMM: 0o0, expDateYY: 0o0 },
+  });
+
+  //defaultValue not a number higher in brackets
 
   return (
     <>
       <main className="mainBackground">
-        <Image className="" src={bgMainDesktop} alt="" />
+        <Image className={styles.bgMainDesktop} src={bgMainDesktop} alt="" />
         <div className="">
           <Image src={bgMainMobile} alt="" />
         </div>
