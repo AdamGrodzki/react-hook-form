@@ -23,7 +23,6 @@ interface Props {
 export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
-  
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -45,7 +44,6 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
         />
         <label className={styles.labelCardNumber}>Card Number</label>
         <input
-          type="number"
           maxLength={19}
           placeholder="e.g. 1234 5678 9123 0000"
           className={cx(styles.inputCardNumber, {
@@ -53,7 +51,7 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
           })}
           {...register("cardNumber", {
             maxLength: 19,
-            valueAsNumber: true,
+            // valueAsNumber: true,
             required: { value: true, message: "Can't be blank" },
             minLength: {
               value: 19,

@@ -13,17 +13,26 @@ interface Props {
 }
 
 export const FrontCard = ({ number, name, expMonth, expYear }: Props) => {
-  console.log(number);
   return (
     <div className={styles.frontCardContainer}>
-      <Image className={styles.frontCardBg} src={frontCard} alt="front card" />
-      {/* <Image className={styles.logo} src={logo} alt="card logo" /> */}
+      <Image
+        className={styles.frontCardBg}
+        src={frontCard}
+        alt="front card"
+        priority={true}
+      />
+      <Image
+        className={styles.logo}
+        src={logo}
+        alt="card logo"
+        priority={true}
+      />
       <p className={styles.frontCardNumber}>
-        {number ?? "0000 0000 0000 0000"}
+        {number || "0000 0000 0000 0000"}
       </p>
-      <p className={styles.frontCardName}>{name ?? "Jane Appleseed"}</p>
+      <p className={styles.frontCardName}>{name || "Jane Appleseed"}</p>
       <p className={styles.frontCardExp}>
-        {expMonth ?? 0} / {expYear ?? 0}
+        {expMonth || "00"} / {expYear || "00"}
       </p>
     </div>
   );

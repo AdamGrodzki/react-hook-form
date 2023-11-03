@@ -35,9 +35,7 @@ export default function Home() {
     <>
       <main className="mainBackground">
         <Image className={styles.bgMainDesktop} src={bgMainDesktop} alt="" />
-        <div className="">
-          <Image src={bgMainMobile} alt="" />
-        </div>
+        <Image src={bgMainMobile} alt="" />
       </main>
       <FrontCard
         name={watch("cardHolderName")}
