@@ -5,6 +5,9 @@
     height: 340px;
     border: 2px solid black;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .labelCardholderName {

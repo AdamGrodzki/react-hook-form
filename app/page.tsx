@@ -16,7 +16,7 @@ export interface IFormInput {
   cardNumber: number;
   expDateMM: number;
   expDateYY: number;
-  CVC: number;
+  cvc: number;
 }
 
 export default function Home() {
@@ -45,7 +45,7 @@ export default function Home() {
         expMonth={watch("expDateMM")}
         expYear={watch("expDateYY")}
       />
-      <BackCard CVC={watch("CVC")} />
+      <BackCard cvc={watch("cvc")} />
       <div>
         <Form
           register={register}

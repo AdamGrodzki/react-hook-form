@@ -23,11 +23,13 @@ interface Props {
 export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
+  
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <label className={styles.labelCardholderName}>Cardholder Name</label>
         <input
+          type="text"
           maxLength={20}
           placeholder="e.g Jane Applessed"
           className={cx(styles.inputCardholderName, {
@@ -43,6 +45,7 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
         />
         <label className={styles.labelCardNumber}>Card Number</label>
         <input
+          type="number"
           maxLength={19}
           placeholder="e.g. 1234 5678 9123 0000"
           className={cx(styles.inputCardNumber, {
@@ -50,7 +53,7 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
           })}
           {...register("cardNumber", {
             maxLength: 19,
-            // valueAsNumber: true,
+            valueAsNumber: true,
             required: { value: true, message: "Can't be blank" },
             minLength: {
               value: 19,
@@ -78,8 +81,7 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
           })}
         />
         <input
-          type="nubmer"
-          max={2}
+          type="number"
           placeholder="YY"
           className={cx(styles.expYY, {
             [styles.invalid]: errors.cardHolderName,
@@ -101,9 +103,9 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
           className={cx(styles.inputCVC, {
             [styles.invalid]: errors.cardHolderName,
           })}
-          {...register("CVC", {
+          {...register("cvc", {
             required: true,
-            valueAsNumber: true,
+            // valueAsNumber: true,
             maxLength: 3,
             minLength: { value: 3, message: "min length is 3" },
           })}
