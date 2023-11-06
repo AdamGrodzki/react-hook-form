@@ -2,9 +2,11 @@
 
 
 .backCardSubcontainer {
-    position: relative;
-    width: 445px;
+    position: absolute;
+    display: flex;
+    width: 447px;
     height: 245px;
+    top: 300px;
 }
 
 .backCardBg {

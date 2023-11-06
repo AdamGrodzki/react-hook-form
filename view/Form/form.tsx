@@ -50,7 +50,7 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
             [styles.invalid]: errors.cardHolderName,
           })}
           {...register("cardNumber", {
-            maxLength: 19,
+            pattern: /^(\d{4} ){3}\d{4}$/i,
             // valueAsNumber: true,
             required: { value: true, message: "Can't be blank" },
             minLength: {

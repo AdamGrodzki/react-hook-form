@@ -33,9 +33,13 @@ export default function Home() {
 
   return (
     <>
-      <main className="mainBackground">
-        <Image className={styles.bgMainDesktop} src={bgMainDesktop} alt="" />
-        <Image src={bgMainMobile} alt="" />
+      <main className="flex flex-col lg:flex-row lg:w-[1440px]  lg:h-[900px] w-[375px] h-[704px] bg-dark">
+        <Image
+          className={styles.backgroundMainDesktop}
+          src={bgMainDesktop}
+          alt=""
+          priority={true}
+        />
       </main>
       <FrontCard
         name={watch("cardHolderName")}

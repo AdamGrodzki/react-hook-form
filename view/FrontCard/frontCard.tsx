@@ -16,15 +16,15 @@ export const FrontCard = ({ number, name, expMonth, expYear }: Props) => {
   return (
     <div className={styles.frontCardContainer}>
       <Image
-        className={styles.frontCardBg}
-        src={frontCard}
-        alt="front card"
-        priority={true}
-      />
-      <Image
         className={styles.logo}
         src={logo}
         alt="card logo"
+        priority={true}
+      />
+      <Image
+        className={styles.frontCardBg}
+        src={frontCard}
+        alt="front card"
         priority={true}
       />
       <p className={styles.frontCardNumber}>

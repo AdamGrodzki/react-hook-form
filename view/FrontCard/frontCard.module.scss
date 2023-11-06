@@ -8,7 +8,7 @@
 //     }
 
 .frontCardContainer{
-    // position: relative;
+    position: absolute;
     width: fit-content;
     top: 32px;
     left: 0;
@@ -29,21 +29,21 @@
 
 .frontCardNumber{
     display: flex;
-    align-items: center;
+    width: fit-content;
     position: absolute;
-    left: 90px;
-    top: 1050px;
+    left: 65px;
+    top: 150px;
     color: white;
     letter-spacing: 3px;
-    font-size: 20px;
-    font-variant-numeric: tabular-nums;
+    font-size: 150%;
+
 }
 
 .frontCardName{
     z-index: 3;
     justify-content: center;
     position: absolute;
-    top: 1100px;
+    top: 200px;
     color: white;
     left: 70px;
     letter-spacing: 2px;
@@ -54,7 +54,7 @@
     position: absolute;
     display: flex;
     justify-content: center;
-    top: 1100px;
+    top: 200px;
     color: white;
     left: 300px;
 }
@@ -64,6 +64,7 @@
     display: flex;
     margin: 20px;
     justify-content: flex-start;
-    top: 1150px;
-    left: 0px
+    top: 25px;
+    left: 0px;
+    z-index: 1;
 }
