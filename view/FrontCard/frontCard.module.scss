@@ -1,70 +1,58 @@
 @import "../../styles/variables.scss";
 
-// .frontCardContainer {
-//     display: grid;
-//     grid-template-columns: 30% 70%;
-//     height: 100%;
-//     align-items: center;
-//     }
-
 .frontCardContainer{
     position: absolute;
-    width: fit-content;
-    top: 32px;
-    left: 0;
-    right: 0;
-    margin: 0;
-    letter-spacing: 2px;
-    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    top: 32px;
+    min-width: 100vh;
+    letter-spacing: 2px;
+    z-index: 1;
 }
 
 .frontCardBg {
   height: 245px;
   position: relative;
-  box-shadow: 0px 8px 70px rgba(0, 0, 0, 0.25);
 }
 
 .frontCardNumber{
-    display: flex;
-    width: fit-content;
     position: absolute;
-    left: 65px;
+    display: flex;
+    justify-content: center;
     top: 150px;
-    color: white;
     letter-spacing: 3px;
     font-size: 150%;
+    color: white;
 
 }
 
 .frontCardName{
-    z-index: 3;
-    justify-content: center;
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    left: 340px;
     top: 200px;
-    color: white;
-    left: 70px;
     letter-spacing: 2px;
-    font-variant-numeric: tabular-nums;
+    color: white;
+    z-index: 3;
 }
 
 .frontCardExp {
     position: absolute;
     display: flex;
-    justify-content: center;
-    top: 200px;
+    justify-content: flex-end;
     color: white;
-    left: 300px;
+    left: 590px;
+    bottom: 30px;
+    min-width: 0vh;
 }
 
 .logo{
     position: absolute;
-    display: flex;
-    margin: 20px;
-    justify-content: flex-start;
-    top: 25px;
-    left: 0px;
+    // display: flex;
+    top: 20px;
+    left: 300px;
     z-index: 1;
 }

@@ -62,8 +62,10 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
         <label className={styles.expDate}>Exp. Date (MM/YY) </label>
         <input
           type="number"
+          step={12}
           min={1}
           max={12}
+          maxLength={2}
           placeholder="MM"
           className={cx(styles.expMM, {
             [styles.invalid]: errors.cardHolderName,
@@ -71,6 +73,7 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
           {...register("expDateMM", {
             required: true,
             maxLength: 2,
+            max: 12,
             valueAsNumber: true,
             minLength: {
               value: 2,
@@ -80,6 +83,7 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
         />
         <input
           type="number"
+          min={0}
           placeholder="YY"
           className={cx(styles.expYY, {
             [styles.invalid]: errors.cardHolderName,
@@ -99,7 +103,9 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
           type="number"
           placeholder="e.g. 123"
           className={cx(styles.inputCVC, {
-            [styles.invalid]: errors.cardHolderName,
+            [styles.invalid]: errors.cardHolderName && (
+              <div className="error">{errors.cardHolderName.message}</div>
+            ),
           })}
           {...register("cvc", {
             required: true,

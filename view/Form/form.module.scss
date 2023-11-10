@@ -2,13 +2,12 @@
 
 .form {
     position: absolute;
-    width: 400px;
-    height: 340px;
-    position: absolute;
     display: flex;
     flex-direction: column;
-    left: 700px;
-    top: 500px;
+    width: 400px;
+    height: 360px;
+    left: 900px;
+    top: 300px;
 
 }
 
@@ -95,12 +94,13 @@
 
 .btnSubmit {    
     background: #21092f;
-    border-radius: 6px;
+    border: none;
+    border-radius: 8px;
     color: $white;
     cursor: pointer;
     font-size: 18px;
     margin-top: 0.5rem;
-    padding: 0.5rem;
+    padding: 0.5rem; 
     transition: all 500ms ease 0s;
     width: 100%;
     &:disabled {

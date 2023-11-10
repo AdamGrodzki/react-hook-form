@@ -13,7 +13,7 @@ export const BackCard = ({ cvc }: Props) => {
         <Image
           className={styles.backCardBg}
           src={backCard}
-          alt="back card"
+          alt="backCard"
           priority={true}
         />
         <div className={styles.backCardCvc}>{cvc ?? "000"}</div>

@@ -28,19 +28,15 @@ export default function Home() {
   } = useForm<IFormInput>({
     defaultValues: { expDateMM: 0o0, expDateYY: 0o0 },
   });
-
-  //defaultValue not a number higher in brackets
-
+  
   return (
     <>
-      <main className="flex flex-col lg:flex-row lg:w-[1440px]  lg:h-[900px] w-[375px] h-[704px] bg-dark">
         <Image
           className={styles.backgroundMainDesktop}
           src={bgMainDesktop}
           alt=""
           priority={true}
         />
-      </main>
       <FrontCard
         name={watch("cardHolderName")}
         number={watch("cardNumber")}
@@ -48,14 +44,12 @@ export default function Home() {
         expYear={watch("expDateYY")}
       />
       <BackCard cvc={watch("cvc")} />
-      <div>
         <Form
           register={register}
           handleSubmit={handleSubmit}
           errors={errors}
           isValid={isValid}
         />
-      </div>
     </>
   );
 }
