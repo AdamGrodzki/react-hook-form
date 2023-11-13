@@ -1,16 +1,16 @@
 @import "../../styles/variables.scss";
 
 
-.backCardSubcontainer {
-    position: absolute;
-    display: flex;
-    width: 447px;
-    height: 245px;
-    top: 300px;
-    left: 400px;
-    align-items: center;
-    justify-content: center;
-}
+// .backCardSubcontainer {
+//     position: absolute;
+//     display: flex;
+//     width: 447px;
+//     height: 245px;
+//     top: 300px;
+//     left: 400px;
+//     align-items: center;
+//     justify-content: center;
+// }
 
 .backCardBg {
     position: absolute;
@@ -18,11 +18,39 @@
     height: 100%;
 }
 
-.backCardCvc {
+// .backCardCvc {
+//     color: $white;
+//     font-size: 14px;
+//     letter-spacing: 1px;
+//     position: absolute;
+//     top: 112px;
+//     right: 60px;
+// }
+
+.backCardSubcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: relative;
+    background-size: contain;
+    width: 74.5%;
+    height: 40.836vw;
+    top: 3vw;
+    left: 23%;
+    font-size: 16px;
+    @media (min-width: 536px){
+        width: 447px;
+        height: 245px;
+        top: -20%;
+        left: 70%;
+        font-size: 25px;
+    }
+}
+
+.backCardCvc{
+    position: relative;
     color: $white;
-    font-size: 14px;
-    letter-spacing: 1px;
-    position: absolute;
-    top: 112px;
-    right: 60px;
+    font-size: .7em;
+    left: -15%;
+    top:45%;
 }

@@ -8,16 +8,9 @@ interface Props {
 
 export const BackCard = ({ cvc }: Props) => {
   return (
-    
-      <div className={styles.backCardSubcontainer}>
-        <Image
-          className={styles.backCardBg}
-          src={backCard}
-          alt="backCard"
-          priority={true}
-        />
-        <div className={styles.backCardCvc}>{cvc ?? "000"}</div>
-      </div>
-    
+    <div className={styles.backCardSubcontainer}>
+      <Image src={backCard} alt="backCard" priority={true} />
+      <div className={styles.backCardCvc}>{cvc ?? "000"}</div>
+    </div>
   );
 };

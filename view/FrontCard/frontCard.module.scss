@@ -1,58 +1,115 @@
 @import "../../styles/variables.scss";
 
-.frontCardContainer{
-    position: absolute;
+// .frontCardContainer{
+//     position: absolute;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     top: 32px;
+//     min-width: 100vh;
+//     letter-spacing: 2px;
+//     z-index: 1;
+// }
+
+// .frontCardBg {
+//   height: 245px;
+//   position: relative;
+// }
+
+// .frontCardNumber{
+//     position: absolute;
+//     display: flex;
+//     justify-content: center;
+//     top: 150px;
+//     letter-spacing: 3px;
+//     font-size: 150%;
+//     color: white;
+
+// }
+
+// .frontCardName{
+//     position: absolute;
+//     display: flex;
+//     align-items: center;
+//     justify-content: flex-end;
+//     left: 460px;
+//     top: 200px;
+//     letter-spacing: 2px;
+//     color: white;
+//     z-index: 3;
+// }
+
+// .frontCardExp {
+//     position: absolute;
+//     display: flex;
+//     justify-content: flex-end;
+//     color: white;
+//     left: 710px;
+//     bottom: 30px;
+//     min-width: 0vh;
+// }
+
+// .logo{
+//     position: absolute;
+//     // display: flex;
+//     top: 20px;
+//     left: 300px;
+//     z-index: 1;
+// }
+
+.frontCardContainer {
+   background-repeat: no-repeat;
+   background-size: cover;
+    width: 74.5%;
+    height: 40.836vw;
+    top: -15vw;
+    left: 3%;
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 32px;
-    min-width: 100vh;
-    letter-spacing: 2px;
-    z-index: 1;
-}
+    flex-flow: column;
+    padding-left: 5%;
+    font-size: 16px;
 
-.frontCardBg {
-  height: 245px;
-  position: relative;
-}
+    @media (min-width: 536px) {
+        width: 447px;
+        height: 245px;
+        top: -25%;
+        left: 50%;
+        font-size: 25px;
+    }
 
-.frontCardNumber{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    top: 150px;
-    letter-spacing: 3px;
-    font-size: 150%;
-    color: white;
+    .logo{
+        position: absolute;
+        align-self: flex-start;
+        margin-top: 3%;
+        margin-left: 3%;
+        width: 20%;
+    }
 
-}
+    .frontCardNumber {
+        color: $white;
+        position: absolute;
+        letter-spacing: .1em;
+        font-size: 1em;
+        margin-top: 30%;
+        margin-bottom: 0;
+        width: 100%;
+        transform: translate(13.5%);
+    }
 
-.frontCardName{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    left: 340px;
-    top: 200px;
-    letter-spacing: 2px;
-    color: white;
-    z-index: 3;
-}
+    .frontCardName {
+        font-size: .7em;
+        position: absolute;
+        margin-top: 40%;
+        color: $white;
+        margin-left: 13.5%;
+    }
 
-.frontCardExp {
-    position: absolute;
-    display: flex;
-    justify-content: flex-end;
-    color: white;
-    left: 590px;
-    bottom: 30px;
-    min-width: 0vh;
-}
-
-.logo{
-    position: absolute;
-    // display: flex;
-    top: 20px;
-    left: 300px;
-    z-index: 1;
+    .frontCardExp {
+        font-size: .7em;
+        position: absolute;
+        margin-top: 40%;
+        color: $white;
+        margin-left: 72%;
+    }
 }
