@@ -30,7 +30,9 @@ export const FrontCard = ({ number, name, expMonth, expYear }: Props) => {
       <p className={styles.frontCardNumber}>
         {number || "0000 0000 0000 0000"}
       </p>
-      <p className={styles.frontCardName}>{name || "Jane Appleseed"}</p>
+      <p className={styles.frontCardName}>
+        {name?.toUpperCase() || "JANE APPLESEED"}
+      </p>
       <p className={styles.frontCardExp}>
         {expMonth || "00"} / {expYear || "00"}
       </p>

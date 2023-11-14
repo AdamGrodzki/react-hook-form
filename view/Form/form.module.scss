@@ -110,18 +110,22 @@
 }
 
 .btnSubmit {    
-    background: #21092f;
+    background: #210a2e;
     border: none;
     border-radius: 8px;
     color: $white;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 1em;
+    font-weight: 700;
     margin-top: 0.5rem;
     padding: 0.5rem; 
     transition: all 500ms ease 0s;
     width: 100%;
     &:disabled {
         opacity: 0.5;
+    }
+    &:hover {
+        background-color: #3d0f57;
     }
 }
 
@@ -139,3 +143,12 @@
     justify-content: center;
     width: 100%;
 }
+
+
+.error {
+        margin-top: -0.75rem;
+        margin-bottom: 1rem;
+        font-size: 0.65em;
+        font-weight: 700;
+        color: hsl(0, 100%, 66%);
+      }

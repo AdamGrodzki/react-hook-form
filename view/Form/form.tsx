@@ -20,25 +20,6 @@ interface Props {
   isValid: boolean;
 }
 
-export const spaceInCardNumber = (e: any) => {
-  if (
-    e.nativeEvent.inputType !== "deleteContentBackward" &&
-    e.target.name === ""
-  ) {
-    if (e.target.value.length === 4) e.target.value = e.target.value + " ";
-    else if (e.target.value.length === 9) e.target.value = e.target.value + " ";
-    else if (e.target.value.length === 14)
-      e.target.value = e.target.value + " ";
-  } else if (e.nativeEvent.inputType === "deleteContentBackward") {
-    if (e.target.value.length === 4)
-      e.target.value = e.target.value.substring(0, 3);
-    else if (e.target.value.length === 9)
-      e.target.value = e.target.value.substring(0, 8);
-    else if (e.target.value.length === 14)
-      e.target.value = e.target.value.substring(0, 13);
-  }
-};
-
 export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
@@ -54,15 +35,15 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
             [styles.invalid]: errors.cardHolderName,
           })}
           {...register("cardHolderName", {
-            required: {
-              value: true,
-              message: "Can't be blank",
-            },
-            maxLength: 20,
+            required: "Can't be blank",
           })}
         />
+        {errors.cardHolderName && (
+          <p className={styles.error}>{errors.cardHolderName.message}</p>
+        )}
         <label className={styles.labelCardNumber}>Card Number</label>
         <input
+          inputMode="numeric"
           placeholder="e.g. 1234 5678 9123 0000"
           className={cx(styles.inputCardNumber, {
             [styles.invalid]: errors.cardHolderName,
@@ -71,26 +52,19 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
             required: "Can't be blank",
             minLength: {
               value: 19,
-              message: "The minimum value is 19 charackters",
-            },
-            maxLength: {
-              value: 19,
-              message: "The maximum value is 19 charackters",
+              message: "Incomplete card number",
             },
             pattern: {
-              value: /(\d{4} ){3}\d{4}/,
+              value: /^(?=.*\d)[\d ]+$/,
               message: "Wrong format, numbers only",
-            },
-            onChange: (e) => {
-              spaceInCardNumber(e);
             },
           })}
         />
         <div className={styles.wrapper}>
           <label className={styles.expDate}>Exp. Date (MM/YY) </label>
           <input
-            type="number"
-            step={12}
+            inputMode="numeric"
+            min={1}
             max={12}
             maxLength={2}
             placeholder="MM"
@@ -98,36 +72,40 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
               [styles.invalid]: errors.cardHolderName,
             })}
             {...register("expDateMM", {
-              required: true,
-              maxLength: 2,
-              max: 12,
-              valueAsNumber: true,
-              minLength: {
-                value: 2,
-                message: "min length is 2",
-              },
+              min: { value: 1, message: "Invalid date" },
+              max: { value: 12, message: "Invalid date" },
+              required: "Can't be blank",
             })}
           />
           <input
-            type="number"
-            min={0}
+            inputMode="numeric"
+            maxLength={2}
             placeholder="YY"
             className={cx(styles.expYY, {
               [styles.invalid]: errors.cardHolderName,
             })}
             {...register("expDateYY", {
-              required: true,
-              valueAsNumber: true,
-              maxLength: 2,
-              minLength: {
-                value: 2,
-                message: "min length is 2",
+              required: "Can't be blank",
+              min: {
+                value: new Date().getFullYear() % 2000,
+                message: "Invalid date",
+              },
+              max: {
+                value: 99,
+                message: "Invalid date",
               },
             })}
           />
+          {(errors.expDateMM && (
+            <p className={styles.error}>{errors.expDateMM.message}</p>
+          )) ||
+            (errors.expDateYY && (
+              <p className={styles.error}>{errors.expDateYY.message}</p>
+            ))}
           <label className={styles.labelCVC}>CVC</label>
           <input
-            type="number"
+            inputMode="numeric"
+            maxLength={3}
             placeholder="e.g. 123"
             className={cx(styles.inputCVC, {
               [styles.invalid]: errors.cardHolderName && (
@@ -135,12 +113,11 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
               ),
             })}
             {...register("cvc", {
-              required: true,
-              // valueAsNumber: true,
-              maxLength: 3,
-              minLength: { value: 3, message: "min length is 3" },
+              required: "Can't be blank",
+              pattern: { value: /[0-9]{3}/, message: "Must be 3 digits" },
             })}
           />
+          {errors.cvc && <p className={styles.error}>{errors.cvc.message}</p>}
         </div>
         <button className={styles.btnSubmit} type="submit" disabled={!isValid}>
           Confirm
