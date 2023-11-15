@@ -60,6 +60,9 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
             },
           })}
         />
+        {errors.cardNumber && (
+          <p className={styles.error}>{errors.cardNumber.message}</p>
+        )}
         <div className={styles.wrapper}>
           <label className={styles.expDate}>Exp. Date (MM/YY) </label>
           <input
