@@ -1,62 +1,5 @@
 @import "../../styles/variables.scss";
 
-// .frontCardContainer{
-//     position: absolute;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     top: 32px;
-//     min-width: 100vh;
-//     letter-spacing: 2px;
-//     z-index: 1;
-// }
-
-// .frontCardBg {
-//   height: 245px;
-//   position: relative;
-// }
-
-// .frontCardNumber{
-//     position: absolute;
-//     display: flex;
-//     justify-content: center;
-//     top: 150px;
-//     letter-spacing: 3px;
-//     font-size: 150%;
-//     color: white;
-
-// }
-
-// .frontCardName{
-//     position: absolute;
-//     display: flex;
-//     align-items: center;
-//     justify-content: flex-end;
-//     left: 460px;
-//     top: 200px;
-//     letter-spacing: 2px;
-//     color: white;
-//     z-index: 3;
-// }
-
-// .frontCardExp {
-//     position: absolute;
-//     display: flex;
-//     justify-content: flex-end;
-//     color: white;
-//     left: 710px;
-//     bottom: 30px;
-//     min-width: 0vh;
-// }
-
-// .logo{
-//     position: absolute;
-//     // display: flex;
-//     top: 20px;
-//     left: 300px;
-//     z-index: 1;
-// }
-
 .frontCardContainer {
    background-repeat: no-repeat;
    background-size: cover;
@@ -67,7 +10,6 @@
     position: relative;
     display: flex;
     flex-flow: column;
-    padding-left: 5%;
     font-size: 16px;
 
     @media (min-width: 536px) {
@@ -83,22 +25,22 @@
         align-self: flex-start;
         margin-top: 3%;
         margin-left: 3%;
-        width: 20%;
     }
 
     .frontCardNumber {
         color: $white;
         position: absolute;
-        letter-spacing: .1em;
+        display: flex;
+        justify-content: center;
+        letter-spacing: .2em;
         font-size: 1em;
         margin-top: 30%;
         margin-bottom: 0;
         width: 100%;
-        transform: translate(13.5%);
     }
 
     .frontCardName {
-        font-size: .7em;
+        font-size: .6em;
         position: absolute;
         margin-top: 40%;
         color: $white;
@@ -106,10 +48,10 @@
     }
 
     .frontCardExp {
-        font-size: .7em;
+        font-size: .6em;
         position: absolute;
         margin-top: 40%;
         color: $white;
-        margin-left: 72%;
+        margin-left: 76%;
     }
 }

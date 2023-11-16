@@ -2,12 +2,13 @@
 
 // form 
 .form {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 376px;
     gap: 10px;
-    margin-top: 90px;
+    left: 55%;
     
     .wrapper{
         display: flex;
@@ -60,6 +61,7 @@
 .inputCardholderName {
     border: 2px solid #8e8593;
     border-radius: 8px;
+    cursor: pointer;
     font-size: 18px;
     font-weight: 500;
     padding-left: 16px;
@@ -76,6 +78,7 @@
 .inputCardNumber {
     border: 2px solid #8e8593;
     border-radius: 8px;
+    cursor: pointer;
     font-size: 18px;
     font-weight: 500;
     padding-left: 16px;
@@ -91,6 +94,7 @@
 .inputCVC {
     border: 2px solid #8e8593;
     border-radius: 8px;
+    cursor: pointer;
     font-size: 18px;
     font-weight: 500;
     padding-left: 16px;
@@ -102,10 +106,14 @@
     &::placeholder {
         opacity: .25;
     }
+    &.error {
+        background-color: red;
+    }
 }
 .expMM {
     border: 2px solid #8e8593;
     border-radius: 8px;
+    cursor: pointer;
     font-size: 18px;
     font-weight: 500;
     padding-left: 16px;
@@ -121,6 +129,7 @@
 .expYY {
     border: 2px solid #8e8593;
     border-radius: 8px;
+    cursor: pointer;
     font-size: 18px;
     font-weight: 500;
     padding-left: 16px;
@@ -151,6 +160,12 @@
     }
     &:hover {
         background-color: #3d0f57;
+
+    }
+
+    @media (min-width: 536px) {
+        padding: 3%;
+        margin-top: 3%;
     }
 }
 
@@ -160,7 +175,6 @@
     &:focus {
     border-color: yellow;
     }
-   
 }    
 // errors 
 .error {
@@ -168,4 +182,5 @@
         font-size: 12px;
         line-height: 15px;
         font-weight: 700;
-      }
+        width: 200px;
+}

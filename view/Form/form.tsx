@@ -44,6 +44,7 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
         <label className={styles.labelCardNumber}>Card Number</label>
         <input
           inputMode="numeric"
+          maxLength={19}
           placeholder="e.g. 1234 5678 9123 0000"
           className={cx(styles.inputCardNumber, {
             [styles.invalid]: errors.cardHolderName,
@@ -55,7 +56,7 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
               message: "Incomplete card number",
             },
             pattern: {
-              value: /^(?=.*\d)[\d ]+$/,
+              value: /^[\d+\s]*$/,
               message: "Wrong format, numbers only",
             },
           })}
@@ -108,6 +109,7 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
           <label className={styles.labelCVC}>CVC</label>
           <input
             inputMode="numeric"
+            min={0}
             maxLength={3}
             placeholder="e.g. 123"
             className={cx(styles.inputCVC, {
@@ -117,7 +119,10 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
             })}
             {...register("cvc", {
               required: "Can't be blank",
-              pattern: { value: /[0-9]{3}/, message: "Must be 3 digits" },
+              pattern: {
+                value: /[0-9]/,
+                message: "Must contains 3 numbers",
+              },
             })}
           />
           {errors.cvc && <p className={styles.error}>{errors.cvc.message}</p>}
