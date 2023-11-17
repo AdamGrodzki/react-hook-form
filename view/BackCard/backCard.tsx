@@ -15,7 +15,7 @@ export const BackCard = ({ cvc }: Props) => {
         alt="backCard"
         priority={true}
       />
-      <div className={styles.backCardCvc}>{cvc ?? "000"}</div>
+      <div className={styles.backCardCvc}>{cvc ? cvc : "000"}</div>
     </div>
   );
 };
