@@ -18,9 +18,27 @@ interface Props {
   handleSubmit: UseFormHandleSubmit<IFormInput>;
   errors: FieldErrors<IFormInput>;
   isValid: boolean;
+  setValue: any;
 }
 
-export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
+export const formatCreditCardNumber = (value: string) => {
+  const number = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
+  const parts = [];
+
+  for (let i = 0; i < number.length; i += 4) {
+    parts.push(number.substr(i, 4));
+  }
+
+  return parts.length > 1 ? parts.join(" ") : value;
+};
+
+export const Form = ({
+  register,
+  handleSubmit,
+  errors,
+  isValid,
+  setValue,
+}: Props) => {
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
@@ -46,6 +64,27 @@ export const Form = ({ register, handleSubmit, errors, isValid }: Props) => {
           inputMode="numeric"
           maxLength={19}
           placeholder="e.g. 1234 5678 9123 0000"
+          onKeyDown={(e) => {
+            const backspacePressed = e.key !== "Backspace";
+            const currentValue = e.currentTarget.value;
+            if (backspacePressed) {
+              const lengthNoSpaces = currentValue.replace(/ /g, "").length;
+              if (
+                lengthNoSpaces !== 0 &&
+                lengthNoSpaces % 4 === 0 &&
+                currentValue.length < 17
+              ) {
+                setValue("cardNumber", currentValue + " ");
+              }
+            } else {
+              if (currentValue[currentValue.length - 2] === " ") {
+                setValue(
+                  "cardNumber",
+                  currentValue.substr(0, currentValue.length - 1)
+                );
+              }
+            }
+          }}
           className={cx(styles.inputCardNumber, {
             [styles.invalid]: errors.cardHolderName,
           })}

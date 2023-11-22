@@ -27,9 +27,9 @@ export const FrontCard = ({ number, name, expMonth, expYear }: Props) => {
         alt="front card"
         priority={true}
       />
-      <p className={styles.frontCardNumber}>
+      <div className={styles.frontCardNumber}>
         {number || "0000 0000 0000 0000"}
-      </p>
+      </div>
       <p className={styles.frontCardName}>
         {name?.toUpperCase() || "JANE APPLESEED"}
       </p>

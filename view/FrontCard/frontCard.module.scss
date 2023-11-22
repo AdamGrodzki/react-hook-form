@@ -1,22 +1,21 @@
 @import "../../styles/variables.scss";
 
 .frontCardContainer {
-   background-repeat: no-repeat;
-   background-size: cover;
-    width: 74.5%;
-    height: 40.836vw;
-    position: relative;
+    position: absolute;
+    align-items: flex-start;
+    justify-self: center;
     display: flex;
     flex-flow: column;
-    font-size: 16px;
+    font-size: 25px;
+    top: 2%;
 
-    @media (min-width: 536px) {
-        width: 447px;
-        height: 245px;
-        top: -25%;
-        left: 50%;
-        font-size: 25px;
-    }
+    // @media (min-width: 536px) {
+    //     width: 447px;
+    //     height: 245px;
+    //     top: -25%;
+    //     left: 50%;
+    //     font-size: 25px;
+    // }
 
     .logo{
         position: absolute;
@@ -52,4 +51,12 @@
         color: $white;
         margin-left: 80%;
     }
+    
 }
+// .frontCardBg{
+// display: flex;
+// justify-content: flex-end;
+// align-items: flex-end;
+// bottom: 1100px;
+// }
+
