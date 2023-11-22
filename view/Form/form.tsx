@@ -18,19 +18,8 @@ interface Props {
   handleSubmit: UseFormHandleSubmit<IFormInput>;
   errors: FieldErrors<IFormInput>;
   isValid: boolean;
-  setValue: any;
+  setValue: string;
 }
-
-export const formatCreditCardNumber = (value: string) => {
-  const number = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
-  const parts = [];
-
-  for (let i = 0; i < number.length; i += 4) {
-    parts.push(number.substr(i, 4));
-  }
-
-  return parts.length > 1 ? parts.join(" ") : value;
-};
 
 export const Form = ({
   register,
