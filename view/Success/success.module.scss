@@ -1,13 +1,36 @@
+@import '/styles/variables.scss';
+
 .successContainer {
-    display: grid;
+    position: absolute;
+    display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     gap: 2rem;
+    left: 60%;
+    top: 30%;
 
 
 .heading {
     font-size: 1.75rem;
     font-weight: 500;
     letter-spacing: .3rem;
+    text-transform: uppercase;
+}
+
+.successParagraph {
+    color: #8e8593;
+    font-weight: 400;
+}
+
+.continueBtn {
+    color: $white;
+    background-color: $dark-violet;
+    font-size: 32px;
+    padding: 15px 0;
+    letter-spacing: 1px;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
 }
 }

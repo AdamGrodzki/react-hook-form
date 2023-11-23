@@ -12,13 +12,15 @@ import {
 } from "react-hook-form";
 
 import { IFormInput } from "@/app/page";
+import { Success } from "../Success/success";
 
 interface Props {
   register: UseFormRegister<IFormInput>;
   handleSubmit: UseFormHandleSubmit<IFormInput>;
   errors: FieldErrors<IFormInput>;
   isValid: boolean;
-  setValue: string;
+  setValue: any;
+  // reset: any,
 }
 
 export const Form = ({
@@ -27,7 +29,8 @@ export const Form = ({
   errors,
   isValid,
   setValue,
-}: Props) => {
+}: // reset,
+Props) => {
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
@@ -155,7 +158,7 @@ export const Form = ({
           />
           {errors.cvc && <p className={styles.error}>{errors.cvc.message}</p>}
         </div>
-        <button className={styles.btnSubmit} type="submit" disabled={!isValid}>
+        <button className={styles.btnSubmit} type="submit" disabled={isValid}>
           Confirm
         </button>
       </form>

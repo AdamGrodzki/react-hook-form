@@ -25,42 +25,40 @@ export default function Home() {
     register,
     handleSubmit,
     setValue,
-    formState: { errors, isValid},
+    // reset,
+    formState: { errors, isValid },
     watch,
   } = useForm<IFormInput>({
     // defaultValues: { expDateMM: 0o0, expDateYY: 0o0},
   });
 
   return (
-    <div className={styles.div}>
-      <div className={styles.left}>
-        <Image
-          className={styles.backgroundMainDesktop}
-          src={bgMainDesktop}
-          alt=""
-        />
-        <FrontCard
-          name={watch("cardHolderName")}
-          number={watch("cardNumber")}
-          expMonth={watch("expDateMM")}
-          expYear={watch("expDateYY")}
-        />
+    <>
+      <Image
+        className={styles.backgroundMainDesktop}
+        src={bgMainDesktop}
+        alt=""
+      />
+      <FrontCard
+        name={watch("cardHolderName")}
+        number={watch("cardNumber")}
+        expMonth={watch("expDateMM")}
+        expYear={watch("expDateYY")}
+      />
 
-        <BackCard cvc={watch("cvc")} />
-      </div>
-      <div>
-        {!isValid ? (
-          <Form
-            register={register}
-            handleSubmit={handleSubmit}
-            errors={errors}
-            isValid={isValid} 
-            setValue={setValue}
-            />
-        ) : (
-          <Success />
-        )}
-      </div>
-    </div>
+      <BackCard cvc={watch("cvc")} />
+
+      {!isValid ? (
+        <Form
+          register={register}
+          handleSubmit={handleSubmit}
+          errors={errors}
+          isValid={isValid}
+          setValue={setValue}
+        />
+      ) : (
+        <Success />
+      )}
+    </>
   );
 }

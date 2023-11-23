@@ -3,19 +3,11 @@
 .frontCardContainer {
     position: absolute;
     align-items: flex-start;
-    justify-self: center;
+    justify-self: flex-end;
     display: flex;
-    flex-flow: column;
     font-size: 25px;
     top: 2%;
 
-    // @media (min-width: 536px) {
-    //     width: 447px;
-    //     height: 245px;
-    //     top: -25%;
-    //     left: 50%;
-    //     font-size: 25px;
-    // }
 
     .logo{
         position: absolute;
