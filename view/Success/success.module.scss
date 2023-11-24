@@ -6,16 +6,20 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    transform: translate(-50%, -50%);
     gap: 2rem;
-    left: 60%;
-    top: 30%;
+    left: 50%;
+    top: 50%;
+    width: 320px;
+    
 
 
 .heading {
-    font-size: 1.75rem;
+    font-size: 26px;
     font-weight: 500;
-    letter-spacing: .3rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .successParagraph {
@@ -26,11 +30,31 @@
 .continueBtn {
     color: $white;
     background-color: $dark-violet;
-    font-size: 32px;
-    padding: 15px 0;
-    letter-spacing: 1px;
-    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 16px;
     border: none;
-    border-radius: 20px;
+    margin-top: 3px;
+    cursor: pointer;
+    width: 100%;
+
+    box-shadow: 0 0 0 0 rgba(0,0 ,0, 1);
+    transform: scale(1);
+    animation: pulse 2s infinite; 
+ }
+
+@keyframes pulse {
+    0%{
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0,0,0,0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    }
 }
 }

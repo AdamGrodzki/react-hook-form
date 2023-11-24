@@ -12,7 +12,6 @@ import {
 } from "react-hook-form";
 
 import { IFormInput } from "@/app/page";
-import { Success } from "../Success/success";
 
 interface Props {
   register: UseFormRegister<IFormInput>;
@@ -139,7 +138,7 @@ Props) => {
             ))}
           <label className={styles.labelCVC}>CVC</label>
           <input
-            inputMode="numeric"
+            type="tel"
             min={0}
             maxLength={3}
             placeholder="e.g. 123"
