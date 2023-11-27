@@ -19,7 +19,7 @@ interface Props {
   errors: FieldErrors<IFormInput>;
   isValid: boolean;
   setValue: any;
-  // reset: any,
+  reset: any;
 }
 
 export const Form = ({
@@ -28,9 +28,11 @@ export const Form = ({
   errors,
   isValid,
   setValue,
-}: // reset,
-Props) => {
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  reset,
+}: Props) => {
+  const onSubmit: SubmitHandler<IFormInput> = (data, reset) =>
+    console.log(data);
+  // console.log(reset);
 
   return (
     <>
@@ -138,7 +140,7 @@ Props) => {
             ))}
           <label className={styles.labelCVC}>CVC</label>
           <input
-            type="tel"
+            type="numeric"
             min={0}
             maxLength={3}
             placeholder="e.g. 123"
@@ -157,7 +159,12 @@ Props) => {
           />
           {errors.cvc && <p className={styles.error}>{errors.cvc.message}</p>}
         </div>
-        <button className={styles.btnSubmit} type="submit" disabled={isValid}>
+        <button
+          className={styles.btnSubmit}
+          type="submit"
+          disabled={isValid}
+          onReset={reset}
+        >
           Confirm
         </button>
       </form>

@@ -25,7 +25,7 @@ export default function Home() {
     register,
     handleSubmit,
     setValue,
-    // reset,
+    reset,
     formState: { errors, isValid },
     watch,
   } = useForm<IFormInput>({
@@ -55,6 +55,7 @@ export default function Home() {
           errors={errors}
           isValid={isValid}
           setValue={setValue}
+          reset={onreset}
         />
       ) : (
         <Success />
