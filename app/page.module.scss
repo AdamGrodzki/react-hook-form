@@ -1,4 +1,19 @@
+@import "../styles/variables.scss";
+
 .backgroundMainDesktop{
     min-height: 100vh;
-    min-width: 50vh;
+    min-width: 30vw;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $grid-breakpoints){
+        
+    }
+}
+
+.childCards {
+    border: 10px solid black;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
 }

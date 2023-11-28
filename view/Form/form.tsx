@@ -19,7 +19,7 @@ interface Props {
   errors: FieldErrors<IFormInput>;
   isValid: boolean;
   setValue: any;
-  reset: any;
+  setFormSubmitted: (value: boolean) => void;
 }
 
 export const Form = ({
@@ -28,11 +28,13 @@ export const Form = ({
   errors,
   isValid,
   setValue,
-  reset,
+  setFormSubmitted,
 }: Props) => {
-  const onSubmit: SubmitHandler<IFormInput> = (data, reset) =>
+  const onSubmit: SubmitHandler<IFormInput> = (data, e) => {
+    e?.preventDefault();
     console.log(data);
-  // console.log(reset);
+    setFormSubmitted(true);
+  };
 
   return (
     <>
@@ -142,6 +144,7 @@ export const Form = ({
           <input
             type="numeric"
             min={0}
+            minLength={3}
             maxLength={3}
             placeholder="e.g. 123"
             className={cx(styles.inputCVC, {
@@ -159,12 +162,7 @@ export const Form = ({
           />
           {errors.cvc && <p className={styles.error}>{errors.cvc.message}</p>}
         </div>
-        <button
-          className={styles.btnSubmit}
-          type="submit"
-          disabled={isValid}
-          onReset={reset}
-        >
+        <button className={styles.btnSubmit} type="submit">
           Confirm
         </button>
       </form>
