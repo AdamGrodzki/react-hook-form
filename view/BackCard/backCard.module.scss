@@ -1,8 +1,10 @@
 @import "../../styles/variables.scss";
 
 .backCard {
-    border: 5px solid green;
+    margin: 320px 320px;
 }
+
 .backCardCvc {
-    border: 2px solid yellow;
+    color: red;
+    text-align: center;
 }

@@ -34,32 +34,30 @@ export default function Home() {
   const [isFormSubmitted, setFormSubmitted] = React.useState(false);
 
   return (
-    <div className={styles.parent}>
-      <Image
-        className={styles.backgroundMainDesktop}
-        src={bgMainDesktop}
-        alt=""
+    <div className={styles.homeBackground}>
+      <div className={styles.cards} />
+      <FrontCard
+        name={watch("cardHolderName")}
+        number={watch("cardNumber")}
+        expMonth={watch("expDateMM")}
+        expYear={watch("expDateYY")}
       />
-      <div className={styles.childCards}>
-        <FrontCard
-          name={watch("cardHolderName")}
-          number={watch("cardNumber")}
-          expMonth={watch("expDateMM")}
-          expYear={watch("expDateYY")}
-        />
-        <BackCard cvc={watch("cvc")} />
+      <BackCard cvc={watch("cvc")} />
+      <div>
+        <div className={styles.form}>
+          {!isFormSubmitted && (
+            <Form
+              register={register}
+              handleSubmit={handleSubmit}
+              errors={errors}
+              isValid={isValid}
+              setValue={setValue}
+              setFormSubmitted={setFormSubmitted}
+            />
+          )}
+          {isFormSubmitted && <div style={{ color: "red" }}>SUCCESS</div>}
+        </div>
       </div>
-      {!isFormSubmitted && (
-        <Form
-          register={register}
-          handleSubmit={handleSubmit}
-          errors={errors}
-          isValid={isValid}
-          setValue={setValue}
-          setFormSubmitted={setFormSubmitted}
-        />
-      )}
-      {isFormSubmitted && <div>SUCCESS</div>}
     </div>
   );
 }

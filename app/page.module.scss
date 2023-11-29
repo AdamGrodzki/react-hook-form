@@ -1,19 +1,20 @@
 @import "../styles/variables.scss";
 
-.backgroundMainDesktop{
-    min-height: 100vh;
-    min-width: 30vw;
-    display: flex;
-    flex-direction: column;
+.homeBackground{
+    height: 100vh;
+    width: 100%;
+    background-image: url("../images/bg-main-desktop.png");
+    background-repeat: no-repeat;
+    background-size:contain ;
 
-    @media (max-width: $grid-breakpoints){
-        
+    @media (max-width: $breakpoint){
+        background-image: url("../images/bg-main-mobile.png");
+        width: 100%;
+        height: 45%;
+        // background-size: cover;
     }
 }
-
-.childCards {
-    border: 10px solid black;
-    margin-top: 10px;
+.cards {
     display: flex;
     flex-direction: column;
 }
