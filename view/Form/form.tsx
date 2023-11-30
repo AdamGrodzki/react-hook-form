@@ -144,7 +144,6 @@ export const Form = ({
           <input
             type="numeric"
             min={0}
-            minLength={3}
             maxLength={3}
             placeholder="e.g. 123"
             className={cx(styles.inputCVC, {
@@ -155,7 +154,7 @@ export const Form = ({
             {...register("cvc", {
               required: "Can't be blank",
               pattern: {
-                value: /[0-9]/,
+                value: /[0-9]{3}/,
                 message: "Must contains 3 numbers",
               },
             })}

@@ -3,14 +3,11 @@
 import { BackCard } from "@/view/BackCard/backCard";
 import { FrontCard } from "@/view/FrontCard/frontCard";
 
-import bgMainDesktop from "@/images/bg-main-desktop.png";
-import bgMainMobile from "@/images/bg-main-mobile.png";
-
 import { Form } from "@/view/Form/form";
-import Image from "next/image";
 import styles from "@/app/page.module.scss";
 import { useForm } from "react-hook-form";
 import { Success } from "@/view/Success/success";
+
 import React from "react";
 
 export interface IFormInput {
@@ -35,28 +32,27 @@ export default function Home() {
 
   return (
     <div className={styles.homeBackground}>
-      <div className={styles.cards} />
-      <FrontCard
-        name={watch("cardHolderName")}
-        number={watch("cardNumber")}
-        expMonth={watch("expDateMM")}
-        expYear={watch("expDateYY")}
-      />
-      <BackCard cvc={watch("cvc")} />
-      <div>
-        <div className={styles.form}>
-          {!isFormSubmitted && (
-            <Form
-              register={register}
-              handleSubmit={handleSubmit}
-              errors={errors}
-              isValid={isValid}
-              setValue={setValue}
-              setFormSubmitted={setFormSubmitted}
-            />
-          )}
-          {isFormSubmitted && <div style={{ color: "red" }}>SUCCESS</div>}
-        </div>
+      <div className={styles.cards}>
+        <FrontCard
+          name={watch("cardHolderName")}
+          number={watch("cardNumber")}
+          expMonth={watch("expDateMM")}
+          expYear={watch("expDateYY")}
+        />
+        <BackCard cvc={watch("cvc")} />
+      </div>
+      <div className={styles.form}>
+        {!isFormSubmitted && (
+          <Form
+            register={register}
+            handleSubmit={handleSubmit}
+            errors={errors}
+            isValid={isValid}
+            setValue={setValue}
+            setFormSubmitted={setFormSubmitted}
+          />
+        )}
+        {isFormSubmitted && <div style={{ color: "red" }}>Success</div>}
       </div>
     </div>
   );

@@ -1,10 +1,21 @@
 @import "../../styles/variables.scss";
 
+.containerCard {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+}
+
 .backCard {
-    margin: 320px 320px;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .backCardCvc {
-    color: red;
-    text-align: center;
+    position: absolute;
+    color: $white;
+    left: 370px;
+    top: 110px;
 }
