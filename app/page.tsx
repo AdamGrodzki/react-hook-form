@@ -31,7 +31,7 @@ export default function Home() {
   const [isFormSubmitted, setFormSubmitted] = React.useState(false);
 
   return (
-    <div className={styles.homeBackground}>
+    <div className={styles.parent}>
       <div className={styles.cards}>
         <FrontCard
           name={watch("cardHolderName")}

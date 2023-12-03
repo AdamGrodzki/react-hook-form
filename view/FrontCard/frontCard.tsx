@@ -1,8 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import frontCard from "@/images/bg-card-front.png";
-import logo from "@/images/card-logo.svg";
 import styles from "@/view/FrontCard/frontCard.module.scss";
 
 interface Props {
@@ -14,28 +11,21 @@ interface Props {
 
 export const FrontCard = ({ number, name, expMonth, expYear }: Props) => {
   return (
-    <div className={styles.frontCardContainer}>
-      <Image
-        className={styles.logo}
-        src={logo}
-        alt="card logo"
-        priority={true}
-      />
-      <Image
-        className={styles.frontCardBg}
-        src={frontCard}
-        alt="front card"
-        priority={true}
-      />
-      <div className={styles.frontCardNumber}>
-        {number || "0000 0000 0000 0000"}
+    <div className={styles.cardContainer}>
+      <div className={styles.cardBackground}>
+        <div className={styles.logo}></div>
+        <div className={styles.frontCardNumber}>
+          {number || "0000 0000 0000 0000"}
+        </div>
+        <div className={styles.bottomCard}>
+          <p className={styles.frontCardName}>
+            {name?.toUpperCase() || "JANE APPLESEED"}
+          </p>
+          <p className={styles.frontCardExp}>
+            {expMonth || "00"} / {expYear || "00"}
+          </p>
+        </div>
       </div>
-      <p className={styles.frontCardName}>
-        {name?.toUpperCase() || "JANE APPLESEED"}
-      </p>
-      <p className={styles.frontCardExp}>
-        {expMonth || "00"} / {expYear || "00"}
-      </p>
     </div>
   );
 };
