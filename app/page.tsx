@@ -28,6 +28,7 @@ export default function Home() {
   } = useForm<IFormInput>({
     // defaultValues: { expDateMM: 0o0, expDateYY: 0o0},
   });
+
   const [isFormSubmitted, setFormSubmitted] = React.useState(false);
 
   return (
@@ -52,7 +53,7 @@ export default function Home() {
             setFormSubmitted={setFormSubmitted}
           />
         )}
-        {isFormSubmitted && <div style={{ color: "red" }}>Success</div>}
+        {isFormSubmitted && <div>{<Success />}</div>}
       </div>
     </div>
   );

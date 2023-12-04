@@ -49,6 +49,10 @@ export const Form = ({
           })}
           {...register("cardHolderName", {
             required: "Can't be blank",
+            pattern: {
+              value: /[a-zA-Z]/g,
+              message: "name can not contain numbers",
+            },
           })}
         />
         {errors.cardHolderName && (
