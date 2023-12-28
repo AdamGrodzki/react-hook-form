@@ -43,12 +43,12 @@ export const Form = ({
         <input
           type="text"
           maxLength={20}
-          placeholder="e.g Jane Applessed"
+          placeholder=" e.g Jane Applessed"
           className={cx(styles.inputCardholderName, {
             [styles.invalid]: errors.cardHolderName,
           })}
           {...register("cardHolderName", {
-            required: "Can't be blank",
+            required: "Name can't be blank",
             pattern: {
               value: /[a-zA-Z]/g,
               message: "name can not contain numbers",
@@ -62,7 +62,7 @@ export const Form = ({
         <input
           inputMode="numeric"
           maxLength={19}
-          placeholder="e.g. 1234 5678 9123 0000"
+          placeholder=" e.g. 1234 5678 9123 0000"
           onKeyDown={(e) => {
             const backspacePressed = e.key !== "Backspace";
             const currentValue = e.currentTarget.value;
@@ -88,7 +88,7 @@ export const Form = ({
             [styles.invalid]: errors.cardHolderName,
           })}
           {...register("cardNumber", {
-            required: "Can't be blank",
+            required: "Number can't be blank",
             minLength: {
               value: 19,
               message: "Incomplete card number",
@@ -103,67 +103,71 @@ export const Form = ({
           <p className={styles.error}>{errors.cardNumber.message}</p>
         )}
         <div className={styles.wrapper}>
-          <label className={styles.expDate}>Exp. Date (MM/YY) </label>
-          <input
-            inputMode="numeric"
-            min={1}
-            max={12}
-            maxLength={2}
-            placeholder="MM"
-            className={cx(styles.expMM, {
-              [styles.invalid]: errors.cardHolderName,
-            })}
-            {...register("expDateMM", {
-              min: { value: 1, message: "Invalid date" },
-              max: { value: 12, message: "Invalid date" },
-              required: "Can't be blank",
-            })}
-          />
-          <input
-            inputMode="numeric"
-            maxLength={2}
-            placeholder="YY"
-            className={cx(styles.expYY, {
-              [styles.invalid]: errors.cardHolderName,
-            })}
-            {...register("expDateYY", {
-              required: "Can't be blank",
-              min: {
-                value: new Date().getFullYear() % 2000,
-                message: "Invalid date",
-              },
-              max: {
-                value: 99,
-                message: "Invalid date",
-              },
-            })}
-          />
-          {(errors.expDateMM && (
-            <p className={styles.error}>{errors.expDateMM.message}</p>
-          )) ||
-            (errors.expDateYY && (
-              <p className={styles.error}>{errors.expDateYY.message}</p>
-            ))}
-          <label className={styles.labelCVC}>CVC</label>
-          <input
-            type="numeric"
-            min={0}
-            maxLength={3}
-            placeholder="e.g. 123"
-            className={cx(styles.inputCVC, {
-              [styles.invalid]: errors.cardHolderName && (
-                <div className="error">{errors.cardHolderName.message}</div>
-              ),
-            })}
-            {...register("cvc", {
-              required: "Can't be blank",
-              pattern: {
-                value: /[0-9]{3}/,
-                message: "Must contains 3 numbers",
-              },
-            })}
-          />
-          {errors.cvc && <p className={styles.error}>{errors.cvc.message}</p>}
+          <div className={styles.wrapperDate}>
+            <label className={styles.expDate}>Exp. Date (MM/YY) </label>
+            <input
+              inputMode="numeric"
+              min={1}
+              max={12}
+              maxLength={2}
+              placeholder=" MM"
+              className={cx(styles.expMM, {
+                [styles.invalid]: errors.cardHolderName,
+              })}
+              {...register("expDateMM", {
+                min: { value: 1, message: "Invalid date" },
+                max: { value: 12, message: "Invalid date" },
+                required: "Month Can't be blank",
+              })}
+            />
+            <input
+              inputMode="numeric"
+              maxLength={2}
+              placeholder=" YY"
+              className={cx(styles.expYY, {
+                [styles.invalid]: errors.cardHolderName,
+              })}
+              {...register("expDateYY", {
+                required: "Year Can't be blank",
+                min: {
+                  value: new Date().getFullYear() % 2000,
+                  message: "Invalid date",
+                },
+                max: {
+                  value: 99,
+                  message: "Invalid date",
+                },
+              })}
+            />
+            {(errors.expDateMM && (
+              <p className={styles.error}>{errors.expDateMM.message}</p>
+            )) ||
+              (errors.expDateYY && (
+                <p className={styles.error}>{errors.expDateYY.message}</p>
+              ))}
+          </div>
+          <div className={styles.wrapperCVC}>
+            <label className={styles.labelCVC}>CVC</label>
+            <input
+              type="numeric"
+              min={0}
+              maxLength={3}
+              placeholder=" e.g. 123"
+              className={cx(styles.inputCVC, {
+                [styles.invalid]: errors.cardHolderName && (
+                  <div className="error">{errors.cardHolderName.message}</div>
+                ),
+              })}
+              {...register("cvc", {
+                required: "CVC Can't be blank",
+                pattern: {
+                  value: /[0-9]{3}/,
+                  message: "Must contains 3 numbers",
+                },
+              })}
+            />
+            {errors.cvc && <p className={styles.error}>{errors.cvc.message}</p>}
+          </div>
         </div>
         <button className={styles.btnSubmit} type="submit">
           Confirm

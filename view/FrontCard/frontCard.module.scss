@@ -1,9 +1,10 @@
 @import "../../styles/variables.scss";
 
-.cardContainer {
+.containerFrontCard {
     border-radius: 20px;
     color: $white;
     height: 245px;
+    margin-right: 90px;
     width: 447px;
     padding: 25px;
     
@@ -18,7 +19,6 @@
     background-image: url("../../images/card-logo.svg");
     width: 84px;
     height: 47px;
-    background-repeat: no-repeat;
 }
 
     .frontCardNumber {
@@ -52,12 +52,3 @@
         font-size: 18px;
     }
 }
-
-// @media all and (max-width: $grid-breakpoints-sm){
-//     .card-container{
-//         position: absolute;
-//         left: -100px;
-//         width: 450px;
-//         order: 0;
-//     }
-// }

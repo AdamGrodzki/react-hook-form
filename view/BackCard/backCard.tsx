@@ -6,7 +6,7 @@ interface Props {
 
 export const BackCard = ({ cvc }: Props) => {
   return (
-    <div className={styles.containerCard}>
+    <div className={styles.containerBackCard}>
       <div className={styles.backCard}>
         <div className={styles.backCardCvc}>{cvc ? cvc : "000"}</div>
       </div>

@@ -1,22 +1,38 @@
 @import "../styles/variables.scss";
 
 .parent{
-    position: relative;
+    display: flex;
+    flex-direction: row;
     height: 100vh;
     width: 100vw;
     background-image: url("../images/bg-main-desktop.png");
     background-repeat: no-repeat;
-    background-size:contain ;
+    background-size: contain;
 
     @media (max-width: $grid-breakpoints-sm){
         background-image: url("../images/bg-main-mobile.png");
+        display: flex;
+        flex-direction: column;
         width: 100%;
         height: 100%;
     }
 }
 .cards {
+    
     display: flex;
     width: 50vw;
-    height: 100vh;
     flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    gap: 50px;
+}
+
+.form {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;    
+    margin-bottom: 200px;
+    align-self: center;
+    margin: 10px;
+    padding: 10px;
 }

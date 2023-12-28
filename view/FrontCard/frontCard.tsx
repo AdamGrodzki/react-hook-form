@@ -11,7 +11,7 @@ interface Props {
 
 export const FrontCard = ({ number, name, expMonth, expYear }: Props) => {
   return (
-    <div className={styles.cardContainer}>
+    <div className={styles.containerFrontCard}>
       <div className={styles.logo}></div>
       <div className={styles.frontCardNumber}>
         {number || "0000 0000 0000 0000"}

@@ -2,21 +2,22 @@
 
 // form 
 .form {
-    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 376px;
-    gap: 20px;
-    left: 60%;
-    top: 400px;
+    width: 445px;
+    padding: 10px;
 
     .wrapper{
         display: flex;
-        align-items: center;
-        position: relative;
-        width: 100%;
-        gap: 9px
+        margin: 5px 0;
+    }
+    
+    .wrapperDate {
+        
+    }
+
+    .wrapperCVC {
     }
 
 }
@@ -29,6 +30,7 @@
     margin: 0 0 5px 0;
     letter-spacing: 1px;
     text-transform: uppercase;
+    width: 100%;
 }
 
 .labelCardNumber {
@@ -38,13 +40,14 @@
     margin: 5px 0 5px 0;
     letter-spacing: 1px;
     text-transform: uppercase;
+    width: 100%;
 }
 
 .labelCVC{
     color: #21092f;
     font-size: 18px;
     font-weight: 600;
-    margin: 5px;
+    margin: 5px 5px 5px 5px;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -60,16 +63,14 @@
 
 // inputs 
 .inputCardholderName {
-    border: 2px solid #8e8593;
+    border: 2px solid $light-grayish-violet;
     border-radius: 8px;
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    padding-left: 16px;
     line-height: 23px;
     width: 100%;
     height: 35px;
-    padding: 0.5rem;
     outline: none;
     &::placeholder {
         opacity: .25;
@@ -77,32 +78,28 @@
 
 }
 .inputCardNumber {
-    border: 2px solid #8e8593;
+    border: 2px solid $light-grayish-violet;
     border-radius: 8px;
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    padding-left: 16px;
     line-height: 23px;
     width: 100%;
     height: 35px;
-    padding: 0.5rem;
     outline: none;
     &::placeholder {
         opacity: .25;
     }
 }
 .inputCVC {
-    border: 2px solid #8e8593;
+    margin: 5px 0;
+    border: 2px solid $light-grayish-violet;
     border-radius: 8px;
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    padding-left: 16px;
     line-height: 23px;
-    width: 100%;
     height: 35px;
-    padding: 0.5rem;
     outline: none;
     &::placeholder {
         opacity: .25;
@@ -112,32 +109,31 @@
     }
 }
 .expMM {
-    border: 2px solid #8e8593;
+    margin: 5px 0;
+    margin-right: 10px;
+    border: 2px solid $light-grayish-violet;
     border-radius: 8px;
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    padding-left: 16px;
     line-height: 23px;
-    width: 50%;
+    width: 45%;
     height: 35px;
-    padding: 0.5rem;
     outline: none;
     &::placeholder {
         opacity: .25;
     }
 }
 .expYY {
-    border: 2px solid #8e8593;
+    margin: 5px 0;
+    border: 2px solid $light-grayish-violet;
     border-radius: 8px;
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    padding-left: 16px;
     line-height: 23px;
-    width: 50%;
+    width: 45%;
     height: 35px;
-    padding: 0.5rem;
     outline: none;
     &::placeholder {
         opacity: .25;
@@ -145,15 +141,16 @@
 }
 // button 
 .btnSubmit {    
-    background: #210a2e;
+    background: $dark-violet;
     border: none;
     border-radius: 8px;
+    box-shadow: 5px 5px 2.5px $light-grayish-violet;
     color: $white;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 16px;
     font-weight: 700;
-    margin-top: 0.5rem;
-    padding: 0.5rem; 
+    margin-top: 20px;
+    padding: 15px; 
     transition: all 500ms ease 0s;
     width: 100%;
     &:disabled {
@@ -162,11 +159,6 @@
     &:hover {
         background-color: #3d0f57;
 
-    }
-
-    @media (min-width: 536px) {
-        padding: 3%;
-        margin-top: 3%;
     }
 }
 
@@ -203,9 +195,9 @@
 .error {
         color: hsl(0, 100%, 66%);
         font-size: 12px;
-        line-height: 15px;
-        font-weight: 700;
-        width: 200px;
+        line-height: 20px;
+        font-weight: bold;
+        width: 100%;
 
 }
 
