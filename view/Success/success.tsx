@@ -4,9 +4,9 @@ import styles from "./success.module.scss";
 import Image from "next/image";
 import logoSuccess from "@/images/icon-complete.svg";
 
-interface Props {
-  setFormSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
-}
+const handleExit = () => {
+  window.location.reload();
+};
 
 export const Success = () => {
   return (
@@ -20,7 +20,7 @@ export const Success = () => {
           We&apos;ve added your card details
         </p>
       </header>
-      <button type="submit" className={styles.continueBtn}>
+      <button type="submit" className={styles.continueBtn} onClick={handleExit}>
         Continue
       </button>
     </div>

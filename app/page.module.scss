@@ -13,7 +13,7 @@
         background-image: url("../images/bg-main-mobile.png");
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: fit-content;
         height: 100%;
     }
 }
@@ -25,10 +25,20 @@
     align-items: end;
     justify-content: center;
     gap: 50px;
+    padding-right: 30px;
+
+    @media (max-width: $grid-breakpoints-sm) {
+        display: flex;
+        flex-direction: column-reverse;
+        width: fit-content;
+        gap: 0;
+        margin: 0 auto;
+        padding: 0;
+    }
 }
 
 .form {
-    width: 50vw;
+    width: fit-content;
     display: flex;
     flex-direction: column;    
     margin-bottom: 200px;

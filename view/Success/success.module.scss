@@ -1,18 +1,14 @@
 @import '/styles/variables.scss';
 
 .successContainer {
-    position: absolute;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     transform: translate(-50%, -50%);
-    gap: 2rem;
-    left: 70%;
-    top: 50%;
+    gap: 20px;
     width: 320px;
-    
-
+    margin: 200px;
 
 .heading {
     font-size: 26px;
@@ -58,3 +54,4 @@
     }
 }
 }
+
