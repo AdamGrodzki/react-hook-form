@@ -21,4 +21,9 @@
     color: $white;
     font-size: 17px;
 }
+@media (max-width: $grid-breakpoints-sm) {
+   display: flex;
+   justify-content: flex-end;
+   margin-top: 20px;
+}
 }
