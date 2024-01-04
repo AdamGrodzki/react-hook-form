@@ -7,18 +7,23 @@
     align-items: center;
     width: 445px;
     padding: 20px;
+    margin-top: 55px;
 
+    
     .wrapper{
         display: flex;
-        margin: 10px 0;
+        align-items: center;
+        margin: auto;
     }
     
     .wrapperDate {
-        color: red;
+    margin: 10px 0;
     }
 
     .wrapperCVC {
-        color: red;
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
     }
 }
 
@@ -28,7 +33,7 @@
     font-size: 18px;
     font-weight: 600;
     margin: 0 0 5px 0;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     width: 100%;
 }
@@ -38,7 +43,7 @@
     font-size: 18px;
     font-weight: 600;
     margin: 5px 0 5px 0;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     width: 100%;
 }
@@ -48,7 +53,7 @@
     font-size: 18px;
     font-weight: 600;
     margin: 5px 5px 5px 5px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
@@ -56,9 +61,11 @@
     color: $dark-violet;
     font-size: 18px;
     font-weight: 600;
-    text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
+    white-space: nowrap;
+    display: flex;
+    margin-bottom: 5px;
 }
 
 // inputs 
@@ -72,6 +79,7 @@
     width: 100%;
     height: 35px;
     outline: none;
+    padding: 20px 10px;
     &::placeholder {
         opacity: .25;
     }
@@ -87,6 +95,7 @@
     width: 100%;
     height: 35px;
     outline: none;
+    padding: 20px 10px;
     &::placeholder {
         opacity: .25;
     }
@@ -95,12 +104,14 @@
     margin: 5px 0;
     border: 2px solid $light-grayish-violet;
     border-radius: 8px;
+    justify-content: center;
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
     line-height: 23px;
     height: 35px;
     outline: none;
+    padding: 20px 0;
     &::placeholder {
         opacity: .25;
     }
@@ -109,17 +120,17 @@
     }
 }
 .expMM {
-    margin: 5px 0;
-    margin-right: 10px;
+    margin: 5px 10px 0 0; 
     border: 2px solid $light-grayish-violet;
     border-radius: 8px;
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
     line-height: 23px;
-    width: 45%;
+    width: 40%;
     height: 35px;
     outline: none;
+    padding: 20px 10px;
     &::placeholder {
         opacity: .25;
     }
@@ -132,9 +143,10 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 23px;
-    width: 45%;
+    width: 40%;
     height: 35px;
     outline: none;
+    padding: 20px 10px;
     &::placeholder {
         opacity: .25;
     }
@@ -204,9 +216,19 @@
 
 @media (max-width: $grid-breakpoints-sm) {
     .form {
-        gap: 15px;
+        gap: 10px;
+        margin-top: 40px;
+        margin-right: 80px;
+        padding: 0;
     }
-    .inputCVC {
-        
+    .inputCardholderName, .inputCardNumber, .inputCVC, .expMM, .expYY {
+        padding: 25px 0;
+    }
+    .btnSubmit {
+        height: 60px;
+        margin-top: 0;
+    }
+    .error {
+        font-size: 15px;
     }
 }
