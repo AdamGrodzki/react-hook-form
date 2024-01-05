@@ -7,12 +7,10 @@
     align-items: center;
     width: 445px;
     padding: 20px;
-    margin-top: 55px;
-
     
     .wrapper{
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         margin: auto;
     }
     
@@ -23,14 +21,13 @@
     .wrapperCVC {
         display: flex;
         flex-direction: column;
-        margin: 10px 0;
     }
 }
 
 // labels 
 .labelCardholderName {
     color: $dark-violet;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     margin: 0 0 5px 0;
     letter-spacing: 2px;
@@ -40,7 +37,7 @@
 
 .labelCardNumber {
     color: $dark-violet;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     margin: 5px 0 5px 0;
     letter-spacing: 2px;
@@ -50,21 +47,19 @@
 
 .labelCVC{
     color: $dark-violet;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
-    margin: 5px 5px 5px 5px;
+    margin: 12px 5px 5px;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 .expDate {
     color: $dark-violet;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    white-space: nowrap;
-    display: flex;
     margin-bottom: 5px;
 }
 
@@ -75,7 +70,6 @@
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    line-height: 23px;
     width: 100%;
     height: 35px;
     outline: none;
@@ -91,7 +85,6 @@
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    line-height: 23px;
     width: 100%;
     height: 35px;
     outline: none;
@@ -101,17 +94,15 @@
     }
 }
 .inputCVC {
-    margin: 5px 0;
     border: 2px solid $light-grayish-violet;
     border-radius: 8px;
-    justify-content: center;
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    line-height: 23px;
     height: 35px;
     outline: none;
-    padding: 20px 0;
+    padding: 20px 10px;
+    width: 190px;
     &::placeholder {
         opacity: .25;
     }
@@ -126,7 +117,6 @@
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    line-height: 23px;
     width: 40%;
     height: 35px;
     outline: none;
@@ -142,7 +132,6 @@
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    line-height: 23px;
     width: 40%;
     height: 35px;
     outline: none;
@@ -217,12 +206,14 @@
 @media (max-width: $grid-breakpoints-sm) {
     .form {
         gap: 10px;
-        margin-top: 40px;
-        margin-right: 80px;
-        padding: 0;
     }
+
+    .labelCardholderName, .labelCardNumber, .expDate, .labelCVC {
+        font-size: 18px;
+    }
+
     .inputCardholderName, .inputCardNumber, .inputCVC, .expMM, .expYY {
-        padding: 25px 0;
+        padding: 25px 10px;
     }
     .btnSubmit {
         height: 60px;

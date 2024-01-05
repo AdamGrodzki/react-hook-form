@@ -8,6 +8,7 @@ const handleExit = () => {
   window.location.reload();
 };
 
+
 export const Success = () => {
   return (
     <div className={styles.successContainer}>
