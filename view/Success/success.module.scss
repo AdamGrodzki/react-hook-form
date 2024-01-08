@@ -10,7 +10,7 @@
     width: 320px;
     opacity: 0;
 
-    animation: move 5s .3s both; 
+    animation: move .3s .3s both; 
 
 .heading {
     font-size: 26px;
@@ -58,6 +58,27 @@
 }
 
 @media (max-width: $grid-breakpoints-sm) {
+    .heading {
+        font-size: 40px;
+        letter-spacing: 5px;
+    }
+
+    img {
+        width: 115px;
+        height: 115px;
+    }
+    .successParagraph {
+        margin-top: 10px;
+        font-size: 20px;
+        width: 100vw;
+        font-size: 25px;
+    }
+    .continueBtn {
+        margin-top: 30px;
+        font-size: 24px;
+        height: 70px;
+        width: 500px;
+    }
  }
 }
 
