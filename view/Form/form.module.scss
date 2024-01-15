@@ -77,9 +77,10 @@
     &::placeholder {
         opacity: .25;
     }
-    &:focus-visible {
-        border: 1px solid #555;
+    &:focus {
+        // border: 1px solid #555;
         box-shadow: 0 0 10px #719ECE;
+        box-sizing: border-box;
     }
 }
 .inputCardNumber {
@@ -95,9 +96,10 @@
     &::placeholder {
         opacity: .25;
     }
-    &:focus-visible {
-        border: 1px solid #555;
+    &:focus {
+        // border: 1px solid #555;
         box-shadow: 0 0 10px #719ECE;
+        box-sizing: border-box;
     }
 }
 .inputCVC {
@@ -114,9 +116,9 @@
         opacity: .25;
     }
     &:focus {
-        border: 1px solid #555;
+        // border: 1px solid #555;
         box-shadow: 0 0 10px #719ECE;
-        
+        box-sizing: border-box;
     }
     &.error {
         background-color: #ff5252;
@@ -126,6 +128,7 @@
     margin: 5px 10px 0 0; 
     border: 2px solid $light-grayish-violet;
     border-radius: 8px;
+    // border: transparent;
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
@@ -136,9 +139,10 @@
     &::placeholder {
         opacity: .25;
     }
-    &:focus-visible {
-        border: 1px solid #555;
+    &:focus {
+        // border: 1px solid #555;
         box-shadow: 0 0 10px #719ECE;
+        box-sizing: border-box;
     }
 }
 .expYY {
@@ -155,9 +159,10 @@
     &::placeholder {
         opacity: .25;
     }
-    &:focus-visible {
-        border: 1px solid #555;
+    &:focus {
+        // border: 1px solid #555;
         box-shadow: 0 0 10px #719ECE;
+        box-sizing: border-box;
     }
 }
 // button 
@@ -194,8 +199,8 @@
 
 
     &:focus {
-    border-color: orange;
-    border-width: 3px;
+    border-color: #ffaa2a;
+    box-shadow: none;
     }
 }
 @keyframes shake {

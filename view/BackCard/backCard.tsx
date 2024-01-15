@@ -1,7 +1,7 @@
 import styles from "@/view/BackCard/backCard.module.scss";
 
 interface Props {
-  cvc: number;
+  cvc: number | string;
 }
 
 export const BackCard = ({ cvc }: Props) => {

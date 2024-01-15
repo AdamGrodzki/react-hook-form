@@ -10,12 +10,16 @@ import { Success } from "@/view/Success/success";
 
 import React from "react";
 
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { schema } from "@/Schema/validationSchema";
+
 export interface IFormInput {
   cardHolderName: string;
-  cardNumber: any;
-  expDateMM: any;
-  expDateYY: any;
-  cvc: any;
+  cardNumber: string;
+  expDateMM: string;
+  expDateYY: string;
+  cvc: number | string;
 }
 
 // const Controller = ({ control, register, name, rules, render }) => {
@@ -40,10 +44,10 @@ export default function Home() {
       expDateYY: "",
       cvc: "",
     },
+    resolver: yupResolver(schema),
   });
 
   const [isFormSubmitted, setFormSubmitted] = React.useState(false);
-
 
   return (
     <div className={styles.parent}>
@@ -65,6 +69,7 @@ export default function Home() {
             isValid={isValid}
             setValue={setValue}
             setFormSubmitted={setFormSubmitted}
+            resolver={true}
           />
         )}
         {isFormSubmitted && <div>{<Success />}</div>}
