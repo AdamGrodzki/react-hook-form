@@ -12,11 +12,18 @@ import React from "react";
 
 export interface IFormInput {
   cardHolderName: string;
-  cardNumber: number;
-  expDateMM: number;
-  expDateYY: number;
-  cvc: number;
+  cardNumber: any;
+  expDateMM: any;
+  expDateYY: any;
+  cvc: any;
 }
+
+// const Controller = ({ control, register, name, rules, render }) => {
+//   const props = register(name);
+//   console.log(props);
+
+//   return render();
+// };
 
 export default function Home() {
   const {
@@ -26,10 +33,17 @@ export default function Home() {
     formState: { errors, isValid },
     watch,
   } = useForm<IFormInput>({
-    // defaultValues: { expDateMM: 0o0, expDateYY: 0o0},
+    defaultValues: {
+      cardHolderName: "",
+      cardNumber: "",
+      expDateMM: "",
+      expDateYY: "",
+      cvc: "",
+    },
   });
 
   const [isFormSubmitted, setFormSubmitted] = React.useState(false);
+
 
   return (
     <div className={styles.parent}>

@@ -12,6 +12,8 @@ import {
 } from "react-hook-form";
 
 import { IFormInput } from "@/app/page";
+import { useEffect } from "react";
+import { useForm, Controller, ControllerProps } from "react-hook-form";
 
 interface Props {
   register: UseFormRegister<IFormInput>;
@@ -22,11 +24,14 @@ interface Props {
   setFormSubmitted: (value: boolean) => void;
 }
 
+// useEffect(() => {
+//   console.log("useEffect");
+// });
+
 export const Form = ({
   register,
   handleSubmit,
   errors,
-  isValid,
   setValue,
   setFormSubmitted,
 }: Props) => {
@@ -42,7 +47,8 @@ export const Form = ({
         <label className={styles.labelCardholderName}>Cardholder Name</label>
         <input
           type="text"
-          maxLength={20}
+          autoFocus={true}
+          maxLength={100}
           placeholder=" e.g Jane Applessed"
           className={cx(styles.inputCardholderName, {
             [styles.invalid]: errors.cardHolderName,
@@ -50,7 +56,7 @@ export const Form = ({
           {...register("cardHolderName", {
             required: "Name can't be blank",
             pattern: {
-              value: /[a-zA-Z]/g,
+              value: /^[a-zA-Z\s]*$/,
               message: "name can not contain numbers",
             },
           })}
@@ -169,7 +175,12 @@ export const Form = ({
             {errors.cvc && <p className={styles.error}>{errors.cvc.message}</p>}
           </div>
         </div>
-        <button className={styles.btnSubmit} type="submit">
+        <button
+          className={styles.btnSubmit}
+          type="submit"
+          // disabled={true}
+          // onClick={() => setFormSubmitted(true)}
+        >
           Confirm
         </button>
       </form>

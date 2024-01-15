@@ -77,7 +77,10 @@
     &::placeholder {
         opacity: .25;
     }
-
+    &:focus-visible {
+        border: 1px solid #555;
+        box-shadow: 0 0 10px #719ECE;
+    }
 }
 .inputCardNumber {
     border: 2px solid $light-grayish-violet;
@@ -92,6 +95,10 @@
     &::placeholder {
         opacity: .25;
     }
+    &:focus-visible {
+        border: 1px solid #555;
+        box-shadow: 0 0 10px #719ECE;
+    }
 }
 .inputCVC {
     border: 2px solid $light-grayish-violet;
@@ -105,6 +112,11 @@
     width: 190px;
     &::placeholder {
         opacity: .25;
+    }
+    &:focus {
+        border: 1px solid #555;
+        box-shadow: 0 0 10px #719ECE;
+        
     }
     &.error {
         background-color: #ff5252;
@@ -124,6 +136,10 @@
     &::placeholder {
         opacity: .25;
     }
+    &:focus-visible {
+        border: 1px solid #555;
+        box-shadow: 0 0 10px #719ECE;
+    }
 }
 .expYY {
     margin: 5px 0;
@@ -138,6 +154,10 @@
     padding: 20px 10px;
     &::placeholder {
         opacity: .25;
+    }
+    &:focus-visible {
+        border: 1px solid #555;
+        box-shadow: 0 0 10px #719ECE;
     }
 }
 // button 
@@ -159,12 +179,18 @@
     }
     &:hover {
         background-color: #3d0f57;
-}
-}
+    }
+    &:focus {
+        background-color: #3d0f57;
+        box-shadow: 10px 5px 5px grey;
+        outline: none;
+    }
+}       
 
-.invalid {
+.invalid{
     border-color: #ff5252;
-    animation: shake 0.4s ease-in-out;
+    // background-color: #fbdae2;
+    animation: shake .3s ease-in-out;
 
 
     &:focus {
@@ -194,13 +220,14 @@
   }
 
 // errors 
-.error {
+.error{
         color: #ff5252;
         font-size: 12px;
         line-height: 20px;
         font-weight: bold;
         width: 100%;
-
+        font-style: italic;
+        padding: 5px 0;
 }
 
 @media (max-width: $grid-breakpoints-sm) {
@@ -223,3 +250,4 @@
         font-size: 15px;
     }
 }
+
