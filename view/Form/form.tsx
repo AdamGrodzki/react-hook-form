@@ -23,7 +23,7 @@ interface Props {
   errors: FieldErrors<IFormInput>;
   isValid: boolean;
   setValue: any;
-  resolver: any;
+  isDirty: boolean;
   setFormSubmitted: (value: boolean) => void;
 }
 
@@ -36,7 +36,7 @@ export const Form = ({
   handleSubmit,
   errors,
   setValue,
-  resolver,
+  isDirty,
   setFormSubmitted,
 }: Props) => {
   const onSubmit: SubmitHandler<IFormInput> = (data, e) => {
@@ -45,7 +45,7 @@ export const Form = ({
     setFormSubmitted(true);
   };
 
-  const HandleSpacesCardNumber = (e: {
+  const handleSpacesCardNumber = (e: {
     key: string;
     currentTarget: { value: any };
   }): any => {
@@ -86,7 +86,7 @@ export const Form = ({
         <input
           maxLength={19}
           placeholder=" e.g. 1234 5678 9123 0000"
-          onKeyDown={HandleSpacesCardNumber}
+          onKeyDown={handleSpacesCardNumber}
           className={cx(styles.inputCardNumber, {
             [styles.invalid]: errors.cardHolderName,
           })}
@@ -124,6 +124,7 @@ export const Form = ({
           <div className={styles.wrapperCVC}>
             <label className={styles.labelCVC}>CVC</label>
             <input
+              maxLength={3}
               placeholder=" e.g. 123"
               className={cx(styles.inputCVC, {
                 [styles.invalid]: errors.cardHolderName && (
@@ -138,8 +139,8 @@ export const Form = ({
         <button
           className={styles.btnSubmit}
           type="submit"
-          // disabled={true}
-          // onClick={() => setFormSubmitted(true)}
+
+          // disabled={!isDirty || !setFormSubmitted}
         >
           Confirm
         </button>

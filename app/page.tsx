@@ -16,10 +16,10 @@ import { schema } from "@/Schema/validationSchema";
 
 export interface IFormInput {
   cardHolderName: string;
-  cardNumber: string;
-  expDateMM: string;
-  expDateYY: string;
-  cvc: number | string;
+  cardNumber: number | null;
+  expDateMM: number | null;
+  expDateYY: number | null;
+  cvc: number | null;
 }
 
 // const Controller = ({ control, register, name, rules, render }) => {
@@ -34,15 +34,15 @@ export default function Home() {
     register,
     handleSubmit,
     setValue,
-    formState: { errors, isValid },
+    formState: { errors, isValid, isDirty },
     watch,
   } = useForm<IFormInput>({
     defaultValues: {
       cardHolderName: "",
-      cardNumber: "",
-      expDateMM: "",
-      expDateYY: "",
-      cvc: "",
+      cardNumber: null,
+      expDateMM: null,
+      expDateYY: null,
+      cvc: null,
     },
     resolver: yupResolver(schema),
   });
@@ -68,8 +68,8 @@ export default function Home() {
             errors={errors}
             isValid={isValid}
             setValue={setValue}
+            isDirty={isDirty}
             setFormSubmitted={setFormSubmitted}
-            resolver={true}
           />
         )}
         {isFormSubmitted && <div>{<Success />}</div>}
