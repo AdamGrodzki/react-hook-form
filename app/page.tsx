@@ -13,37 +13,37 @@ import React from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "@/Schema/validationSchema";
+import InputHookForm from "@/view/components/InputHookForm";
+
+
 
 export interface IFormInput {
   cardHolderName: string;
-  cardNumber: number | null;
-  expDateMM: number | null;
-  expDateYY: number | null;
-  cvc: number | null;
+  cardNumber: string;
+  expDateMM: number;
+  expDateYY: number;
+  cvc: string;
 }
 
-// const Controller = ({ control, register, name, rules, render }) => {
-//   const props = register(name);
-//   console.log(props);
-
-//   return render();
-// };
+const defaultValues = {
+  cardHolderName: "",
+  cardNumber: "",
+  expDateMM: 0,
+  expDateYY: 0,
+  cvc: "",
+};
 
 export default function Home() {
   const {
     register,
     handleSubmit,
+    control,
     setValue,
     formState: { errors, isValid, isDirty },
     watch,
   } = useForm<IFormInput>({
-    defaultValues: {
-      cardHolderName: "",
-      cardNumber: null,
-      expDateMM: null,
-      expDateYY: null,
-      cvc: null,
-    },
+    defaultValues,
+    mode: "onChange",
     resolver: yupResolver(schema),
   });
 
@@ -73,6 +73,7 @@ export default function Home() {
           />
         )}
         {isFormSubmitted && <div>{<Success />}</div>}
+        <InputHookForm />
       </div>
     </div>
   );

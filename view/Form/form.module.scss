@@ -78,9 +78,9 @@
         opacity: .25;
     }
     &:focus {
-        // border: 1px solid #555;
         box-shadow: 0 0 10px #719ECE;
         box-sizing: border-box;
+        // border-color: #ffaa2a;
     }
 }
 .inputCardNumber {
@@ -97,9 +97,9 @@
         opacity: .25;
     }
     &:focus {
-        // border: 1px solid #555;
         box-shadow: 0 0 10px #719ECE;
         box-sizing: border-box;
+        // border-color: #ffaa2a;
     }
 }
 .inputCVC {
@@ -116,19 +116,15 @@
         opacity: .25;
     }
     &:focus {
-        // border: 1px solid #555;
         box-shadow: 0 0 10px #719ECE;
         box-sizing: border-box;
-    }
-    &.error {
-        background-color: #ff5252;
+        // border-color: #ffaa2a;
     }
 }
 .expMM {
     margin: 5px 10px 0 0; 
     border: 2px solid $light-grayish-violet;
     border-radius: 8px;
-    // border: transparent;
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
@@ -159,9 +155,11 @@
         opacity: .25;
     }
     &:focus {
-        // border: 1px solid #555;
         box-shadow: 0 0 10px #719ECE;
         box-sizing: border-box;
+    }
+    .invalid {
+        border-color: #ff5252;
     }
 }
 // button 
@@ -193,7 +191,7 @@
 
 .invalid{
     border-color: #ff5252;
-    // background-color: #fbdae2;
+    background-color: #fbdae2;
     animation: shake .3s ease-in-out;
 
 
@@ -255,3 +253,29 @@
     }
 }
 
+
+.exampleLabel {
+    color: $dark-violet;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.inputExample {
+    margin: 10px 2px;
+    border: 2px solid $light-grayish-violet;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    width: 100%;
+    height: 20px;
+    outline: none;
+    padding: 30px 10px;
+    &::placeholder {
+        opacity: .25;
+    }
+}

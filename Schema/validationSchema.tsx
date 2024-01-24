@@ -5,38 +5,32 @@ export const schema = yup.object().shape({
     .string()
     .required("Name can't be blank")
     .matches(/^[a-zA-Z\s]*$/, "Name can't contain numbers")
-    .max(99, "Can't be more than 99 charackters/letters")
-    .nullable(),
+    .min(2, "Enter your name as it appears on your card")
+    .max(99, "Can't be more than 99 charackters/letters"),
   cardNumber: yup
-    .number()
+    .string()
+    .matches(/^[\d ]*$/, "card number must contains digits")
+    .length(19, "card number must contains 19 digits")
     .typeError("Wrong format, numbers only")
-    .positive("Must be a positive number")
-    .integer("Must be an integer")
-    .min(19, "Incomplete card number")
-    .required("Number can't be blank")
-    .nullable(),
+    .required("Number can't be blank"),
   expDateMM: yup
     .number()
-    .typeError("Wrong format, numbers only")
-    .positive("Must be a positive number")
-    .integer("Must be an integer")
-    .min(1, "Month can't be less than 1")
-    .max(12, "Month can't be more than 12")
     .required("Month can't be blank")
-    .nullable(),
+    .typeError("Wrong format, numbers only")
+    .min(1, "Month can't be less than 1")
+    .max(12, "Month can't be more than 12"),
   expDateYY: yup
     .number()
     .typeError("Wrong format, numbers only")
-    .positive("Must be a positive number")
-    .integer("Must be an integer")
-    .min(new Date().getFullYear() % 2000, "Invalid date")
-    .max(99, "Invalid date")
     .required("Year can't be blank")
-    .nullable(),
+    .min(new Date().getFullYear() % 2000, "Invalid date")
+    .max(99, "Invalid date"),
+
   cvc: yup
     .string()
+    .matches(/^[\d ]*$/, "cvc must contains 3 digits")
+    .length(3, "cvc must contains 3 digits")
     .typeError("Wrong format, numbers only")
-    .matches(/[0-9]{3}/, "Must contains 3 numbers")
-    .required("Can't be blank")
-    .nullable(),
+    .test("cvc must contains 3 digits", (number) => String(number).length === 3)
+    .required("Can't be blank"),
 });

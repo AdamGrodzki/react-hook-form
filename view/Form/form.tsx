@@ -3,6 +3,8 @@
 import styles from "@/view/Form/form.module.scss";
 import { schema } from "../../Schema/validationSchema";
 
+import { useController, UseControllerProps } from "react-hook-form";
+
 import * as yup from "yup";
 import cx from "clsx";
 
@@ -16,6 +18,7 @@ import {
 import { IFormInput } from "@/app/page";
 import { useEffect } from "react";
 import { useForm, Controller, ControllerProps } from "react-hook-form";
+import React from "react";
 
 interface Props {
   register: UseFormRegister<IFormInput>;
@@ -31,18 +34,23 @@ interface Props {
 //   console.log("useEffect");
 // });
 
+// function Input(props: UseControllerProps<FormValues>) {
+//   const { field, fieldState } = useController(props);
+// }
+
 export const Form = ({
   register,
   handleSubmit,
   errors,
-  setValue,
   isDirty,
+  isValid,
+  setValue,
   setFormSubmitted,
 }: Props) => {
   const onSubmit: SubmitHandler<IFormInput> = (data, e) => {
     e?.preventDefault();
     console.log(data);
-    setFormSubmitted(true);
+    if (e?.type === "submit") setFormSubmitted(true);
   };
 
   const handleSpacesCardNumber = (e: {
@@ -88,7 +96,7 @@ export const Form = ({
           placeholder=" e.g. 1234 5678 9123 0000"
           onKeyDown={handleSpacesCardNumber}
           className={cx(styles.inputCardNumber, {
-            [styles.invalid]: errors.cardHolderName,
+            [styles.invalid]: errors.cardNumber,
           })}
           {...register("cardNumber")}
         />
@@ -102,7 +110,7 @@ export const Form = ({
               maxLength={2}
               placeholder=" MM"
               className={cx(styles.expMM, {
-                [styles.invalid]: errors.cardHolderName,
+                [styles.invalid]: errors.expDateMM,
               })}
               {...register("expDateMM")}
             />
@@ -110,7 +118,7 @@ export const Form = ({
               maxLength={2}
               placeholder=" YY"
               className={cx(styles.expYY, {
-                [styles.invalid]: errors.cardHolderName,
+                [styles.invalid]: errors.expDateYY,
               })}
               {...register("expDateYY")}
             />
@@ -127,8 +135,8 @@ export const Form = ({
               maxLength={3}
               placeholder=" e.g. 123"
               className={cx(styles.inputCVC, {
-                [styles.invalid]: errors.cardHolderName && (
-                  <div className="error">{errors.cardHolderName.message}</div>
+                [styles.invalid]: errors.cvc && (
+                  <div className="error">{errors.cvc.message}</div>
                 ),
               })}
               {...register("cvc")}
@@ -136,11 +144,12 @@ export const Form = ({
             {errors.cvc && <p className={styles.error}>{errors.cvc.message}</p>}
           </div>
         </div>
+
         <button
           className={styles.btnSubmit}
           type="submit"
-
-          // disabled={!isDirty || !setFormSubmitted}
+          // disabled={!isValid}
+          // onClick={() => setFormSubmitted(!isValid)}
         >
           Confirm
         </button>

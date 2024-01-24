@@ -3,10 +3,10 @@
 import styles from "@/view/FrontCard/frontCard.module.scss";
 
 interface Props {
-  number: number | string;
   name: string;
-  expMonth: number | null;
-  expYear: number | null;
+  number: string;
+  expMonth: number;
+  expYear: number;
 }
 
 export const FrontCard = ({ number, name, expMonth, expYear }: Props) => {
