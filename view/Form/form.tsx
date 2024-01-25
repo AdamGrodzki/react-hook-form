@@ -4,6 +4,8 @@ import styles from "@/view/Form/form.module.scss";
 import { schema } from "../../Schema/validationSchema";
 
 import { useController, UseControllerProps } from "react-hook-form";
+// import InputHookForm from "../components/InputHookForm";
+import { Input} from "../components/InputHookForm";
 
 import * as yup from "yup";
 import cx from "clsx";
@@ -13,12 +15,12 @@ import {
   SubmitHandler,
   UseFormHandleSubmit,
   UseFormRegister,
+  useForm,
 } from "react-hook-form";
 
 import { IFormInput } from "@/app/page";
 import { useEffect } from "react";
-import { useForm, Controller, ControllerProps } from "react-hook-form";
-import React from "react";
+import * as React from "react";
 
 interface Props {
   register: UseFormRegister<IFormInput>;
@@ -74,22 +76,29 @@ export const Form = ({
       }
     }
   };
-
+  const { control } = useForm<IFormInput>({
+    defaultValues: {
+      cardHolderName: ""
+    },
+    mode: "onChange",
+  });
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <label className={styles.labelCardholderName}>Cardholder Name</label>
-        <input
-          autoFocus={true}
-          placeholder=" e.g Jane Applessed"
-          className={cx(styles.inputCardholderName, {
-            [styles.invalid]: errors.cardHolderName,
-          })}
-          {...register("cardHolderName")}
-        />
-        {errors.cardHolderName && (
+        <Input
+         control={control}
+          name="cardHolderName"
+          // autoFocus={true}
+          // placeholder=" e.g Jane Applessed"
+          // className={cx(styles.inputCardholderName, {
+          //   [styles.invalid]: errors.cardHolderName,
+          // })}
+          // {...register("cardHolderName")}
+          />
+        {/* {errors.cardHolderName && (
           <p className={styles.error}>{errors.cardHolderName.message}</p>
-        )}
+        )} */}
         <label className={styles.labelCardNumber}>Card Number</label>
         <input
           maxLength={19}
@@ -144,7 +153,6 @@ export const Form = ({
             {errors.cvc && <p className={styles.error}>{errors.cvc.message}</p>}
           </div>
         </div>
-
         <button
           className={styles.btnSubmit}
           type="submit"

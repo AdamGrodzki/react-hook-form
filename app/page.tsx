@@ -10,10 +10,10 @@ import { Success } from "@/view/Success/success";
 
 import React from "react";
 
-import * as yup from "yup";
+// import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "@/Schema/validationSchema";
-import InputHookForm from "@/view/components/InputHookForm";
+// import { control } from "react-hook-form";
 
 
 
@@ -37,7 +37,6 @@ export default function Home() {
   const {
     register,
     handleSubmit,
-    control,
     setValue,
     formState: { errors, isValid, isDirty },
     watch,
@@ -73,7 +72,6 @@ export default function Home() {
           />
         )}
         {isFormSubmitted && <div>{<Success />}</div>}
-        <InputHookForm />
       </div>
     </div>
   );

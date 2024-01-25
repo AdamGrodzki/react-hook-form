@@ -1,41 +1,34 @@
-import { readFileSync } from "fs";
 import * as React from "react";
 import { useForm, useController, UseControllerProps } from "react-hook-form";
+import { IFormInput } from "@/app/page";
 
-type FormValues = {
-  FirstName: string;
-};
 
-function Input(props: UseControllerProps<FormValues>) {
-  const { field, fieldState } = useController(props);
+
+export function Input(props: UseControllerProps<IFormInput>) {
+  const { field } = useController(props);
 
   return (
     <div>
       <input {...field} placeholder={props.name} />
-      <p>{fieldState.isTouched && "Touched"}</p>
-      <p>{fieldState.isDirty && "Dirty"}</p>
-      <p>{fieldState.invalid ? "invalid" : "valid"}</p>
     </div>
   );
 }
 
-export default function InputHookForm() {
-  const { handleSubmit, control } = useForm<FormValues>({
-    defaultValues: {
-      FirstName: "",
-    },
-    mode: "onChange",
-  });
-  const onSubmit = (data: FormValues) => console.log(data);
+// export default function InputHookForm() {
+//   const { control } = useForm<IFormInput>({
+//     defaultValues: {
+//       cardHolderName: ""
+//     },
+//     mode: "onChange",
+//   });
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        control={control}
-        name="FirstName"
-        rules={{ required: true }}
-      />
-      <input type="submit" />
-    </form>
-  );
-}
+
+//   return (
+//     <form >
+//       <Input
+//         control={control}
+//         name="cardHolderName"
+//         rules={{ required: true }} />
+//     </form>
+//   );
+// }
