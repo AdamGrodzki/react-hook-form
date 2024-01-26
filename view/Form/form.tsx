@@ -96,18 +96,20 @@ export const Form = ({
           // })}
           // {...register("cardHolderName")}
           />
-        {/* {errors.cardHolderName && (
+        {errors.cardHolderName && (
           <p className={styles.error}>{errors.cardHolderName.message}</p>
-        )} */}
+        )}
         <label className={styles.labelCardNumber}>Card Number</label>
-        <input
-          maxLength={19}
-          placeholder=" e.g. 1234 5678 9123 0000"
-          onKeyDown={handleSpacesCardNumber}
-          className={cx(styles.inputCardNumber, {
-            [styles.invalid]: errors.cardNumber,
-          })}
-          {...register("cardNumber")}
+        <Input
+        name="cardNumber"
+        control={control}
+          // maxLength={19}
+          // placeholder=" e.g. 1234 5678 9123 0000"
+          // onKeyDown={handleSpacesCardNumber}
+          // className={cx(styles.inputCardNumber, {
+          //   [styles.invalid]: errors.cardNumber,
+          // })}
+          // {...register("cardNumber")}
         />
         {errors.cardNumber && (
           <p className={styles.error}>{errors.cardNumber.message}</p>
@@ -115,21 +117,25 @@ export const Form = ({
         <div className={styles.wrapper}>
           <div className={styles.wrapperDate}>
             <label className={styles.expDate}>Exp. Date (MM/YY) </label>
-            <input
-              maxLength={2}
-              placeholder=" MM"
-              className={cx(styles.expMM, {
-                [styles.invalid]: errors.expDateMM,
-              })}
-              {...register("expDateMM")}
+            <Input
+            name="expDateMM"
+            control={control}
+              // maxLength={2}
+              // placeholder=" MM"
+              // className={cx(styles.expMM, {
+              //   [styles.invalid]: errors.expDateMM,
+              // })}
+              // {...register("expDateMM")}
             />
-            <input
-              maxLength={2}
-              placeholder=" YY"
-              className={cx(styles.expYY, {
-                [styles.invalid]: errors.expDateYY,
-              })}
-              {...register("expDateYY")}
+            <Input
+              name="expDateYY"
+              control={control}
+              // maxLength={2}
+              // placeholder=" YY"
+              // className={cx(styles.expYY, {
+              //   [styles.invalid]: errors.expDateYY,
+              // })}
+              // {...register("expDateYY")}
             />
             {(errors.expDateMM && (
               <p className={styles.error}>{errors.expDateMM.message}</p>
@@ -140,15 +146,17 @@ export const Form = ({
           </div>
           <div className={styles.wrapperCVC}>
             <label className={styles.labelCVC}>CVC</label>
-            <input
-              maxLength={3}
-              placeholder=" e.g. 123"
-              className={cx(styles.inputCVC, {
-                [styles.invalid]: errors.cvc && (
-                  <div className="error">{errors.cvc.message}</div>
-                ),
-              })}
-              {...register("cvc")}
+            <Input
+            name="cvc"
+            control={control}
+              // maxLength={3}
+              // placeholder=" e.g. 123"
+              // className={cx(styles.inputCVC, {
+              //   [styles.invalid]: errors.cvc && (
+              //     <div className="error">{errors.cvc.message}</div>
+              //   ),
+              // })}
+              // {...register("cvc")}
             />
             {errors.cvc && <p className={styles.error}>{errors.cvc.message}</p>}
           </div>
