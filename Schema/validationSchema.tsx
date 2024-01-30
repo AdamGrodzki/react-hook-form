@@ -14,13 +14,13 @@ export const schema = yup.object().shape({
     .typeError("Wrong format, numbers only")
     .required("Number can't be blank"),
   expDateMM: yup
-    .number()
+    .string()
     .required("Month can't be blank")
     .typeError("Wrong format, numbers only")
     .min(1, "Month can't be less than 1")
     .max(12, "Month can't be more than 12"),
   expDateYY: yup
-    .number()
+    .string()
     .typeError("Wrong format, numbers only")
     .required("Year can't be blank")
     .min(new Date().getFullYear() % 2000, "Invalid date")

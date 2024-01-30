@@ -5,8 +5,8 @@ import styles from "@/view/FrontCard/frontCard.module.scss";
 interface Props {
   name: string;
   number: string;
-  expMonth: number;
-  expYear: number;
+  expMonth: string;
+  expYear: string;
 }
 
 export const FrontCard = ({ number, name, expMonth, expYear }: Props) => {

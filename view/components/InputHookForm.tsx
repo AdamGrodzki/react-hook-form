@@ -1,34 +1,36 @@
 import * as React from "react";
-import { useForm, useController, UseControllerProps } from "react-hook-form";
+import {
+  useForm,
+  useController,
+  UseControllerProps,
+  Controller,
+} from "react-hook-form";
 import { IFormInput } from "@/app/page";
 
+import styles from "@/view/components/InputHookForm.module.scss";
 
-
-export function Input(props: UseControllerProps<IFormInput>) {
-  const { field } = useController(props);
-
-  return (
-    <div>
-      <input {...field} placeholder={props.name} />
-    </div>
-  );
+interface OwnProps {
+  label?: string;
+  placeholderText?: string;
+  onBlur?: any;
 }
 
-// export default function InputHookForm() {
-//   const { control } = useForm<IFormInput>({
-//     defaultValues: {
-//       cardHolderName: ""
-//     },
-//     mode: "onChange",
-//   });
+type InputProps = UseControllerProps<IFormInput> & OwnProps;
 
+export function Input(props: InputProps) {
+  const { label } = props;
+  const { field: input } = useController(props);
 
-//   return (
-//     <form >
-//       <Input
-//         control={control}
-//         name="cardHolderName"
-//         rules={{ required: true }} />
-//     </form>
-//   );
-// }
+  return (
+    <>
+      <div>
+        <label className={styles.labelsForm}>{props.label}</label>
+        <input
+          {...input}
+          className={styles.inputsForm}
+          placeholder={props.placeholderText}
+        />
+      </div>
+    </>
+  );
+}

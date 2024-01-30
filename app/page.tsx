@@ -15,21 +15,19 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "@/Schema/validationSchema";
 // import { control } from "react-hook-form";
 
-
-
 export interface IFormInput {
   cardHolderName: string;
   cardNumber: string;
-  expDateMM: number;
-  expDateYY: number;
+  expDateMM: string;
+  expDateYY: string;
   cvc: string;
 }
 
 const defaultValues = {
   cardHolderName: "",
   cardNumber: "",
-  expDateMM: 0,
-  expDateYY: 0,
+  expDateMM: "",
+  expDateYY: "",
   cvc: "",
 };
 
@@ -64,7 +62,7 @@ export default function Home() {
           <Form
             register={register}
             handleSubmit={handleSubmit}
-            errors={errors}
+            //errors={errors}
             isValid={isValid}
             setValue={setValue}
             isDirty={isDirty}
