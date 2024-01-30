@@ -1,4 +1,3 @@
-import { readFileSync } from "fs";
 import * as React from "react";
 import { useForm, useController, UseControllerProps } from "react-hook-form";
 
@@ -9,6 +8,7 @@ type FormValues = {
 function Input(props: UseControllerProps<FormValues>) {
   const { field, fieldState } = useController(props);
 
+  console.log(props);
   return (
     <div>
       <input {...field} placeholder={props.name} />
@@ -28,14 +28,10 @@ export default function InputHookForm() {
   });
   const onSubmit = (data: FormValues) => console.log(data);
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        control={control}
-        name="FirstName"
-        rules={{ required: true }}
-      />
-      <input type="submit" />
-    </form>
-  );
+  // return (
+  //   <form onSubmit={handleSubmit(onSubmit)}>
+  //     <Input control={control} name="FirstName" rules={{ required: true }} />
+  //     <input type="submit"/>
+  //   </form>
+  // );
 }

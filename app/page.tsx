@@ -14,8 +14,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "@/Schema/validationSchema";
 import InputHookForm from "@/view/components/InputHookForm";
-
-
+import { useEffect } from "react";
 
 export interface IFormInput {
   cardHolderName: string;
@@ -25,7 +24,7 @@ export interface IFormInput {
   cvc: string;
 }
 
-const defaultValues = {
+let defaultValues = {
   cardHolderName: "",
   cardNumber: "",
   expDateMM: 0,
@@ -67,6 +66,7 @@ export default function Home() {
             handleSubmit={handleSubmit}
             errors={errors}
             isValid={isValid}
+            control={control}
             setValue={setValue}
             isDirty={isDirty}
             setFormSubmitted={setFormSubmitted}

@@ -17,12 +17,12 @@ import {
 
 import { IFormInput } from "@/app/page";
 import { useEffect } from "react";
-import { useForm, Controller, ControllerProps } from "react-hook-form";
 import React from "react";
 
 interface Props {
   register: UseFormRegister<IFormInput>;
   handleSubmit: UseFormHandleSubmit<IFormInput>;
+  control: UseControllerProps<IFormInput>;
   errors: FieldErrors<IFormInput>;
   isValid: boolean;
   setValue: any;
@@ -30,18 +30,11 @@ interface Props {
   setFormSubmitted: (value: boolean) => void;
 }
 
-// useEffect(() => {
-//   console.log("useEffect");
-// });
-
-// function Input(props: UseControllerProps<FormValues>) {
-//   const { field, fieldState } = useController(props);
-// }
-
 export const Form = ({
   register,
   handleSubmit,
   errors,
+  control,
   isDirty,
   isValid,
   setValue,
@@ -80,6 +73,7 @@ export const Form = ({
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <label className={styles.labelCardholderName}>Cardholder Name</label>
         <input
+          control={control}
           autoFocus={true}
           placeholder=" e.g Jane Applessed"
           className={cx(styles.inputCardholderName, {
@@ -148,7 +142,7 @@ export const Form = ({
         <button
           className={styles.btnSubmit}
           type="submit"
-          // disabled={!isValid}
+          disabled={!isValid}
           // onClick={() => setFormSubmitted(!isValid)}
         >
           Confirm
