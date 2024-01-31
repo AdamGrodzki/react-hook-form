@@ -39,7 +39,7 @@ interface Props {
 export const Form = ({
   register,
   handleSubmit,
- // errors,
+  // errors,
   isDirty,
   isValid,
   setValue,
@@ -90,21 +90,21 @@ export const Form = ({
           control={control}
           name="cardHolderName"
           render={({ field: { onBlur } }) => (
-            <Input
-              onBlur={onBlur}
-              placeholderText="e.g Jane Applessed"
-              label="Cardholder Name"
-              control={control}
-              name="cardHolderName"
-              rules={{ required: "Name is required" }}
-              // autoFocus={true}
-              // placeholder="e.g Jane Applessed"
-              // className={cx(styles.inputCardholderName, {
-              //   [styles.invalid]: errors.cardHolderName,
-              // })}
-              // {...register("cardHolderName")}
-            />
-          )}
+              <Input
+                placeholderText="e.g Jane Applessed"
+                label="Cardholder Name"
+                control={control}
+                name="cardHolderName"
+                rules={{ required: "Name is required" }}
+                // autoFocus={true}
+                // placeholder="e.g Jane Applessed"
+                // className={cx(styles.inputCardholderName, {
+                //   [styles.invalid]: errors.cardHolderName,
+                // })}
+                // {...register("cardHolderName")}
+              />
+            )
+          }
         />
         {/* {errors.cardHolderName && (
           <p className={styles.error}>{errors.cardHolderName.message}</p>
