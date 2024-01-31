@@ -10,10 +10,8 @@ import { Success } from "@/view/Success/success";
 
 import React from "react";
 
-// import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "@/Schema/validationSchema";
-// import { control } from "react-hook-form";
 
 export interface IFormInput {
   cardHolderName: string;
@@ -36,6 +34,7 @@ export default function Home() {
     register,
     handleSubmit,
     setValue,
+    control,
     formState: { errors, isValid, isDirty },
     watch,
   } = useForm<IFormInput>({
@@ -62,12 +61,13 @@ export default function Home() {
           <Form
             register={register}
             handleSubmit={handleSubmit}
-            //errors={errors}
+            errors={errors}
             isValid={isValid}
-            // control={control}
             setValue={setValue}
             isDirty={isDirty}
             setFormSubmitted={setFormSubmitted}
+            control={control}
+            watch={watch}
           />
         )}
         {isFormSubmitted && <div>{<Success />}</div>}

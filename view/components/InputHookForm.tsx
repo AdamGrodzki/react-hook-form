@@ -12,23 +12,23 @@ import styles from "@/view/components/InputHookForm.module.scss";
 interface OwnProps {
   label?: string;
   placeholderText?: string;
-  onBlur?: any;
+  input?: string;
 }
 
 type InputProps = UseControllerProps<IFormInput> & OwnProps;
 
 export function Input(props: InputProps) {
-  const { label } = props;
-  const { field: input } = useController(props);
+  const { placeholderText, label, name, control, rules } = props;
+  const { field } = useController({ name, control, rules });
 
   return (
     <>
       <div>
-        <label className={styles.labelsForm}>{props.label}</label>
+        <label className={styles.labelsForm}>{label}</label>
         <input
-          {...input}
+          {...field}
           className={styles.inputsForm}
-          placeholder={props.placeholderText}
+          placeholder={placeholderText}
         />
       </div>
     </>
