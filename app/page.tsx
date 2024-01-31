@@ -23,7 +23,7 @@ export interface IFormInput {
   cvc: string;
 }
 
-const defaultValues = {
+let defaultValues = {
   cardHolderName: "",
   cardNumber: "",
   expDateMM: "",
@@ -64,6 +64,7 @@ export default function Home() {
             handleSubmit={handleSubmit}
             //errors={errors}
             isValid={isValid}
+            // control={control}
             setValue={setValue}
             isDirty={isDirty}
             setFormSubmitted={setFormSubmitted}
