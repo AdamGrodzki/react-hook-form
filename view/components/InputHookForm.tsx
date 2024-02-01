@@ -12,14 +12,17 @@ import styles from "@/view/components/InputHookForm.module.scss";
 interface OwnProps {
   label?: string;
   placeholderText?: string;
-  input?: string;
 }
 
 type InputProps = UseControllerProps<IFormInput> & OwnProps;
 
 export function Input(props: InputProps) {
   const { placeholderText, label, name, control, rules } = props;
-  const { field } = useController({ name, control, rules });
+  const { field, fieldState } = useController({
+    name,
+    control,
+    rules,
+  });
 
   return (
     <>
@@ -29,7 +32,12 @@ export function Input(props: InputProps) {
           {...field}
           className={styles.inputsForm}
           placeholder={placeholderText}
+          // {...(fieldState.error && <p>{fieldState.error.message}</p>)}
         />
+        {/* <p>{fieldState.isTouched && "Touched"}</p>
+        <p>{fieldState.isDirty && "Dirty"}</p>
+        <p>{fieldState.invalid ? "invalid" : "valid"}</p> */}
+        <p className={styles.error}>{fieldState.error?.message}</p>
       </div>
     </>
   );

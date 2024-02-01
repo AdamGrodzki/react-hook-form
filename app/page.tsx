@@ -35,8 +35,9 @@ export default function Home() {
     handleSubmit,
     setValue,
     control,
-    formState: { errors, isValid, isDirty },
+    setError,
     watch,
+    formState: { errors, isValid, isDirty },
   } = useForm<IFormInput>({
     defaultValues,
     mode: "onChange",
@@ -68,6 +69,7 @@ export default function Home() {
             setFormSubmitted={setFormSubmitted}
             control={control}
             watch={watch}
+            setError={setError}
           />
         )}
         {isFormSubmitted && <div>{<Success />}</div>}

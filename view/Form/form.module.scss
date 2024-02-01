@@ -200,6 +200,7 @@
     box-shadow: none;
     }
 }
+//shake animation for errors
 @keyframes shake {
     0% {
       transform: translate(1px, 1px) rotate(0deg);
@@ -231,6 +232,7 @@
         font-style: italic;
         padding: 5px 0;
 }
+//media-query for breakpoint-sm size
 
 @media (max-width: $grid-breakpoints-sm) {
     .form {

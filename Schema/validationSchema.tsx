@@ -23,7 +23,7 @@ export const schema = yup.object().shape({
     .string()
     .typeError("Wrong format, numbers only")
     .required("Year can't be blank")
-    .min(new Date().getFullYear() % 2000, "Invalid date")
+    // .min(new Date().getFullYear() % 2000, "Invalid date")
     .max(99, "Invalid date"),
 
   cvc: yup
