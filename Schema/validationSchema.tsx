@@ -10,20 +10,21 @@ export const schema = yup.object().shape({
   cardNumber: yup
     .string()
     .matches(/^[\d ]*$/, "card number must contains digits")
-    .length(19, "card number must contains 19 digits")
+    .length(16, "card number must contains 19 digits")
     .typeError("Wrong format, numbers only")
     .required("Number can't be blank"),
   expDateMM: yup
-    .string()
+    .number()
     .required("Month can't be blank")
     .typeError("Wrong format, numbers only")
     .min(1, "Month can't be less than 1")
     .max(12, "Month can't be more than 12"),
   expDateYY: yup
-    .string()
+    .number()
+    .nullable()
     .typeError("Wrong format, numbers only")
     .required("Year can't be blank")
-    // .min(new Date().getFullYear() % 2000, "Invalid date")
+    .min(new Date().getFullYear() % 2000, "Invalid date")
     .max(99, "Invalid date"),
 
   cvc: yup

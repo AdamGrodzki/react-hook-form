@@ -54,30 +54,7 @@ export const Form = ({
     if (e?.type === "submit") setFormSubmitted(true);
   };
 
-  const handleSpacesCardNumber = (e: {
-    key: string;
-    currentTarget: { value: any };
-  }): any => {
-    const backspacePressed = e.key !== "Backspace";
-    const currentValue = e.currentTarget.value;
-    if (backspacePressed) {
-      const lengthNoSpaces = currentValue.replace(/ /g, "").length;
-      if (
-        lengthNoSpaces !== 0 &&
-        lengthNoSpaces % 4 === 0 &&
-        currentValue.length < 17
-      ) {
-        setValue("cardNumber", currentValue + " ");
-      }
-    } else {
-      if (currentValue[currentValue.length - 2] === " ") {
-        setValue("cardNumber", currentValue.substr(0, currentValue.length - 1));
-      }
-    }
-  };
-
-  console.log(watch());
-
+  // console.log(watch());
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <Input
@@ -94,12 +71,7 @@ export const Form = ({
         control={control}
         rules={{
           required: "Card number is required",
-          maxLength: 19,
         }}
-        // onKeyDown={handleSpacesCardNumber}
-        // className={cx(styles.inputCardNumber, {
-        //   [styles.invalid]: errors.cardNumber,
-        // })}
       />
       <div className={styles.wrapper}>
         <div className={styles.wrapperDate}>
@@ -108,7 +80,7 @@ export const Form = ({
             label="Exp. Date (MM/YY)"
             name="expDateMM"
             control={control}
-            rules={{ required: true, maxLength: 2 }}
+            rules={{ required: true }}
           />
           <Input
             placeholderText="YY"
@@ -116,7 +88,6 @@ export const Form = ({
             control={control}
             rules={{
               required: true,
-              maxLength: 2,
             }}
           />
         </div>
@@ -126,7 +97,7 @@ export const Form = ({
             label="cvc"
             name="cvc"
             control={control}
-            rules={{ required: true, maxLength: 3 }}
+            rules={{ required: true }}
           />
         </div>
       </div>
@@ -135,7 +106,6 @@ export const Form = ({
         type="submit"
         disabled={!isValid}
         // onClick={() => setFormSubmitted(!isValid)}
-        // onClick={() => console.log("click")}
       >
         Confirm
       </button>

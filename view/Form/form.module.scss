@@ -12,7 +12,8 @@
         display: flex;
         align-items: baseline;
         margin: auto;
-    }
+        gap: 10px;
+}
     
     .wrapperDate {
     margin: 10px 0;
@@ -111,7 +112,7 @@
     height: 35px;
     outline: none;
     padding: 20px 10px;
-    width: 190px;
+    width: 40%;
     &::placeholder {
         opacity: .25;
     }

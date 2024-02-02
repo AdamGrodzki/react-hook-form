@@ -8,6 +8,7 @@ import {
 import { IFormInput } from "@/app/page";
 
 import styles from "@/view/components/InputHookForm.module.scss";
+import { boolean } from "yup";
 
 interface OwnProps {
   label?: string;
@@ -25,8 +26,7 @@ export function Input(props: InputProps) {
   });
 
   return (
-    <>
-      <div>
+      <div className={styles.inputHookForm}>
         <label className={styles.labelsForm}>{label}</label>
         <input
           {...field}
@@ -35,10 +35,9 @@ export function Input(props: InputProps) {
           // {...(fieldState.error && <p>{fieldState.error.message}</p>)}
         />
         {/* <p>{fieldState.isTouched && "Touched"}</p>
-        <p>{fieldState.isDirty && "Dirty"}</p>
-        <p>{fieldState.invalid ? "invalid" : "valid"}</p> */}
+        <p>{fieldState.isDirty && "Dirty"}</p> */}
+        {/* <p>{fieldState.invalid ? "invalid" : "valid"}</p> */}
         <p className={styles.error}>{fieldState.error?.message}</p>
       </div>
-    </>
   );
 }
