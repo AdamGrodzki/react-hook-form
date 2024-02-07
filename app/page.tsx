@@ -47,15 +47,25 @@ export default function Home() {
   const [isFormSubmitted, setFormSubmitted] = React.useState(false);
 
   return (
-    <div className={styles.parent}>
-      <div className={styles.cards}>
-        <FrontCard
-          name={watch("cardHolderName")}
-          number={watch("cardNumber")}
-          expMonth={watch("expDateMM")}
-          expYear={watch("expDateYY")}
-        />
-        <BackCard cvc={watch("cvc")} />
+    <FormProvider {...formMethods}>
+      <div className={styles.parent}>
+        <div className={styles.cards}>
+          <FrontCard />
+          <BackCard />
+        </div>
+        <div className={styles.form}>
+          {!isFormSubmitted && (
+            <Form
+              register={register}
+              errors={errors}
+              isValid={isValid}
+              isDirty={isDirty}
+              setFormSubmitted={setFormSubmitted}
+              watch={watch}
+            />
+          )}
+          {isFormSubmitted && <div>{<Success />}</div>}
+        </div>
       </div>
       <div className={styles.form}>
         {!isFormSubmitted && (
