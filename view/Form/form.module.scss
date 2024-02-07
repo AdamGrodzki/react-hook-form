@@ -10,17 +10,21 @@
     
     .wrapper{
         display: flex;
-        align-items: flex-start;
-        margin: auto;
+        align-items: end;
+        gap: 10px;
     }
     
     .wrapperDate {
-    margin: 10px 0;
+    display: flex;
+    align-items: end;
+    gap: 10px;
+    width: 75%;
     }
 
     .wrapperCVC {
         display: flex;
         flex-direction: column;
+        align-items: start;
     }
 }
 
@@ -250,32 +254,5 @@
     }
     .error {
         font-size: 15px;
-    }
-}
-
-
-.exampleLabel {
-    color: $dark-violet;
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0 0 5px 0;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    width: 100%;
-}
-
-.inputExample {
-    margin: 10px 2px;
-    border: 2px solid $light-grayish-violet;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 500;
-    width: 100%;
-    height: 20px;
-    outline: none;
-    padding: 30px 10px;
-    &::placeholder {
-        opacity: .25;
     }
 }
