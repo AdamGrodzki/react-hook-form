@@ -23,18 +23,14 @@
     height: 35px;
     outline: none;
     padding: 20px 10px;
+    margin: 5px 0;
     &::placeholder {
         opacity: .25;
-    }
-    &:focus {
-        box-shadow: 0 0 10px #719ECE;
-        box-sizing: border-box;
-}
+    }    
 }
 
 .inputHookForm {
     width: 100%;
-    
 }
 
 //error 
