@@ -10,7 +10,7 @@ export const schema = yup.object().shape({
   cardNumber: yup
     .string()
     .matches(/^[\d ]*$/, "card number must contains digits")
-    .length(19, "card number must contains 19 digits")
+    .length(16, "card number must contains 19 digits")
     .typeError("Wrong format, numbers only")
     .required("Number can't be blank"),
   expDateMM: yup

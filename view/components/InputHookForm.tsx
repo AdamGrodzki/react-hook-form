@@ -1,37 +1,38 @@
 import * as React from "react";
-import { useForm, useController, UseControllerProps } from "react-hook-form";
+import {
+  useForm,
+  useController,
+  UseControllerProps,
+  Controller,
+} from "react-hook-form";
+import { IFormInput } from "@/app/page";
 
-type FormValues = {
-  FirstName: string;
-};
+import styles from "@/view/components/InputHookForm.module.scss";
 
-function Input(props: UseControllerProps<FormValues>) {
-  const { field, fieldState } = useController(props);
-
-  console.log(props);
-  return (
-    <div>
-      <input {...field} placeholder={props.name} />
-      <p>{fieldState.isTouched && "Touched"}</p>
-      <p>{fieldState.isDirty && "Dirty"}</p>
-      <p>{fieldState.invalid ? "invalid" : "valid"}</p>
-    </div>
-  );
+interface OwnProps {
+  label?: string;
+  placeholderText?: string;
 }
 
-export default function InputHookForm() {
-  const { handleSubmit, control } = useForm<FormValues>({
-    defaultValues: {
-      FirstName: "",
-    },
-    mode: "onChange",
-  });
-  const onSubmit = (data: FormValues) => console.log(data);
+type InputProps = UseControllerProps<IFormInput> & OwnProps;
 
-  // return (
-  //   <form onSubmit={handleSubmit(onSubmit)}>
-  //     <Input control={control} name="FirstName" rules={{ required: true }} />
-  //     <input type="submit"/>
-  //   </form>
-  // );
+export function Input(props: InputProps) {
+  const { placeholderText, label, name, control, rules } = props;
+  const { field, fieldState } = useController({
+    name,
+    control,
+    rules,
+  });
+
+  return (
+    <div className={styles.inputHookForm}>
+      <label className={styles.labelsForm}>{label}</label>
+      <input
+        {...field}
+        className={styles.inputsForm}
+        placeholder={placeholderText}
+      />
+      <p className={styles.error}>{fieldState.error?.message}</p>
+    </div>
+  );
 }
