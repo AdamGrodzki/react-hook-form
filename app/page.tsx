@@ -51,12 +51,7 @@ export default function Home() {
     <FormProvider {...formMethods}>
       <div className={styles.parent}>
         <div className={styles.cards}>
-          <FrontCard
-            name={watch("cardHolderName")}
-            number={watch("cardNumber")}
-            expMonth={watch("expDateMM")}
-            expYear={watch("expDateYY")}
-          />
+          <FrontCard />
           <BackCard />
         </div>
         <div className={styles.form}>
