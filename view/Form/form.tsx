@@ -1,66 +1,41 @@
 "use client";
+import React from "react";
 
 import styles from "@/view/Form/form.module.scss";
-import { schema } from "../../Schema/validationSchema";
-
-import {
-  useController,
-  UseControllerProps,
-  Controller,
-  FieldErrors,
-} from "react-hook-form";
 import { Input } from "../components/InputHookForm";
 
-import * as yup from "yup";
-import cx from "clsx";
-
 import {
+  useFormContext,
+  FieldErrors,
   SubmitHandler,
-  UseFormHandleSubmit,
   UseFormRegister,
-  useForm,
 } from "react-hook-form";
 
 import { IFormInput } from "@/app/page";
 
-import * as React from "react";
-
 interface Props {
   register: UseFormRegister<IFormInput>;
-  handleSubmit: UseFormHandleSubmit<IFormInput>;
   errors: FieldErrors<IFormInput>;
   isValid: boolean;
-  setValue: any;
   isDirty: boolean;
-  setError: any;
-  control: any;
   watch: any;
   setFormSubmitted: (value: boolean) => void;
 }
 
-export const Form = ({
-  register,
-  isDirty,
-  isValid,
-  setValue,
-  control,
-  watch,
-  handleSubmit,
-  setFormSubmitted,
-}: Props) => {
+export const Form = ({ isValid, setFormSubmitted }: Props) => {
   const onSubmit: SubmitHandler<IFormInput> = (data, e) => {
     e?.preventDefault();
     console.log(data);
     if (e?.type === "submit") setFormSubmitted(true);
   };
 
-  // console.log(watch());
+  const { handleSubmit } = useFormContext<IFormInput>();
+
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <Input
         placeholderText="e.g Jane Applessed"
         label="Cardholder Name"
-        control={control}
         name="cardHolderName"
         rules={{ required: "Name is required" }}
       />
@@ -68,7 +43,6 @@ export const Form = ({
         placeholderText="e.g. 1234 5678 9123 0000"
         label="card number"
         name="cardNumber"
-        control={control}
         rules={{
           required: "Card number is required",
         }}
@@ -77,15 +51,13 @@ export const Form = ({
         <div className={styles.wrapperDate}>
           <Input
             placeholderText="MM"
-            label="Exp. Date (MM/YY)"
+            label="Exp.Date"
             name="expDateMM"
-            control={control}
             rules={{ required: true }}
           />
           <Input
             placeholderText="YY"
             name="expDateYY"
-            control={control}
             rules={{
               required: true,
             }}
@@ -96,17 +68,11 @@ export const Form = ({
             placeholderText="e.g. 123"
             label="cvc"
             name="cvc"
-            control={control}
             rules={{ required: true }}
           />
         </div>
       </div>
-      <button
-        className={styles.btnSubmit}
-        type="submit"
-        disabled={!isValid}
-        // onClick={() => setFormSubmitted(!isValid)}
-      >
+      <button className={styles.btnSubmit} type="submit" disabled={!isValid}>
         Confirm
       </button>
     </form>

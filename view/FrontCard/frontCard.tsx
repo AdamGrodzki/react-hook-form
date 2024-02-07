@@ -9,10 +9,8 @@ import { array } from "yup";
 function displayCardNumber(number: string) {
   let newCardNumber = number + "0000000000000000";
   newCardNumber = newCardNumber.slice(0, 16);
-  return `${newCardNumber.slice(0, 4)} ${newCardNumber.slice(
-    4,
-    8
-  )} ${newCardNumber.slice(8, 12)} ${newCardNumber.slice(12, 16)}`;
+  return `${newCardNumber.slice(0, 4)} ${newCardNumber.slice(4, 8)} 
+  ${newCardNumber.slice(8, 12)} ${newCardNumber.slice(12, 16)}`;
 }
 
 export const FrontCard = ({}) => {

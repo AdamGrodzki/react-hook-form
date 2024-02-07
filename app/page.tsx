@@ -1,17 +1,16 @@
 "use client";
+import React from "react";
 
 import { BackCard } from "@/view/BackCard/backCard";
 import { FrontCard } from "@/view/FrontCard/frontCard";
-
 import { Form } from "@/view/Form/form";
-import styles from "@/app/page.module.scss";
-import { useForm } from "react-hook-form";
 import { Success } from "@/view/Success/success";
 
-import React from "react";
+import { FormProvider, useForm, useFormContext } from "react-hook-form";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "@/Schema/validationSchema";
+import styles from "@/app/page.module.scss";
 
 export interface IFormInput {
   cardHolderName: string;
@@ -30,19 +29,21 @@ let defaultValues = {
 };
 
 export default function Home() {
+  const formMethods = useForm<IFormInput>({
+    defaultValues,
+    mode: "onChange",
+    resolver: yupResolver(schema),
+  });
+
   const {
     register,
     handleSubmit,
     setValue,
     control,
     setError,
-    watch,
     formState: { errors, isValid, isDirty },
-  } = useForm<IFormInput>({
-    defaultValues,
-    mode: "onChange",
-    resolver: yupResolver(schema),
-  });
+    watch,
+  } = formMethods;
 
   const [isFormSubmitted, setFormSubmitted] = React.useState(false);
 
@@ -67,23 +68,6 @@ export default function Home() {
           {isFormSubmitted && <div>{<Success />}</div>}
         </div>
       </div>
-      <div className={styles.form}>
-        {!isFormSubmitted && (
-          <Form
-            register={register}
-            handleSubmit={handleSubmit}
-            errors={errors}
-            isValid={isValid}
-            setValue={setValue}
-            isDirty={isDirty}
-            setFormSubmitted={setFormSubmitted}
-            control={control}
-            watch={watch}
-            setError={setError}
-          />
-        )}
-        {isFormSubmitted && <div>{<Success />}</div>}
-      </div>
-    </div>
+    </FormProvider>
   );
 }
