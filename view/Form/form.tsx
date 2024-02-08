@@ -4,32 +4,28 @@ import React from "react";
 import styles from "@/view/Form/form.module.scss";
 import { Input } from "../components/InputHookForm";
 
-import {
-  useFormContext,
-  FieldErrors,
-  SubmitHandler,
-  UseFormRegister,
-} from "react-hook-form";
+import { useFormContext, SubmitHandler } from "react-hook-form";
 
 import { IFormInput } from "@/app/page";
 
 interface Props {
-  register: UseFormRegister<IFormInput>;
-  errors: FieldErrors<IFormInput>;
-  isValid: boolean;
-  isDirty: boolean;
-  watch: any;
   setFormSubmitted: (value: boolean) => void;
 }
 
-export const Form = ({ isValid, setFormSubmitted }: Props) => {
+export const Form = ({ setFormSubmitted }: Props) => {
   const onSubmit: SubmitHandler<IFormInput> = (data, e) => {
     e?.preventDefault();
     console.log(data);
     if (e?.type === "submit") setFormSubmitted(true);
   };
 
-  const { handleSubmit } = useFormContext<IFormInput>();
+  const {
+    handleSubmit,
+    formState: { isValid, isSubmitted, isDirty, isSubmitSuccessful},
+  } = useFormContext<IFormInput>();
+
+  console.log("isSub", isSubmitted);
+  console.log("isSubmitSucc", isSubmitSuccessful);
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -72,7 +68,11 @@ export const Form = ({ isValid, setFormSubmitted }: Props) => {
           />
         </div>
       </div>
-      <button className={styles.btnSubmit} type="submit" disabled={!isValid}>
+      <button
+        className={styles.btnSubmit}
+        type="submit"
+        disabled={!isDirty || !isValid}
+      >
         Confirm
       </button>
     </form>

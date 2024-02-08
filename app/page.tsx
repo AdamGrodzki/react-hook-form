@@ -1,12 +1,12 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 import { BackCard } from "@/view/BackCard/backCard";
 import { FrontCard } from "@/view/FrontCard/frontCard";
 import { Form } from "@/view/Form/form";
 import { Success } from "@/view/Success/success";
 
-import { FormProvider, useForm, useFormContext } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "@/Schema/validationSchema";
@@ -41,11 +41,18 @@ export default function Home() {
     setValue,
     control,
     setError,
-    formState: { errors, isValid, isDirty },
     watch,
+    formState: {
+      errors,
+      isValid,
+      isDirty,
+      isSubmitSuccessful,
+      isSubmitted,
+      isSubmitting,
+    },
   } = formMethods;
 
-  const [isFormSubmitted, setFormSubmitted] = React.useState(false);
+  const [isFormSubmitted, setFormSubmitted] = useState(false);
 
   return (
     <FormProvider {...formMethods}>
@@ -55,16 +62,7 @@ export default function Home() {
           <BackCard />
         </div>
         <div className={styles.form}>
-          {!isFormSubmitted && (
-            <Form
-              register={register}
-              errors={errors}
-              isValid={isValid}
-              isDirty={isDirty}
-              setFormSubmitted={setFormSubmitted}
-              watch={watch}
-            />
-          )}
+          {!isFormSubmitted && <Form setFormSubmitted={setFormSubmitted} />}
           {isFormSubmitted && <div>{<Success />}</div>}
         </div>
       </div>
