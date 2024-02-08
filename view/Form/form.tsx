@@ -8,24 +8,16 @@ import { useFormContext, SubmitHandler } from "react-hook-form";
 
 import { IFormInput } from "@/app/page";
 
-interface Props {
-  setFormSubmitted: (value: boolean) => void;
-}
-
-export const Form = ({ setFormSubmitted }: Props) => {
+export const Form = () => {
   const onSubmit: SubmitHandler<IFormInput> = (data, e) => {
     e?.preventDefault();
     console.log(data);
-    if (e?.type === "submit") setFormSubmitted(true);
   };
 
   const {
     handleSubmit,
-    formState: { isValid, isSubmitted, isDirty, isSubmitSuccessful},
+    formState: { isValid, isDirty },
   } = useFormContext<IFormInput>();
-
-  console.log("isSub", isSubmitted);
-  console.log("isSubmitSucc", isSubmitSuccessful);
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

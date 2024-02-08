@@ -36,23 +36,8 @@ export default function Home() {
   });
 
   const {
-    register,
-    handleSubmit,
-    setValue,
-    control,
-    setError,
-    watch,
-    formState: {
-      errors,
-      isValid,
-      isDirty,
-      isSubmitSuccessful,
-      isSubmitted,
-      isSubmitting,
-    },
+    formState: { isSubmitSuccessful },
   } = formMethods;
-
-  const [isFormSubmitted, setFormSubmitted] = useState(false);
 
   return (
     <FormProvider {...formMethods}>
@@ -62,8 +47,8 @@ export default function Home() {
           <BackCard />
         </div>
         <div className={styles.form}>
-          {!isFormSubmitted && <Form setFormSubmitted={setFormSubmitted} />}
-          {isFormSubmitted && <div>{<Success />}</div>}
+          {!isSubmitSuccessful && <Form />}
+          {isSubmitSuccessful && <div>{<Success />}</div>}
         </div>
       </div>
     </FormProvider>

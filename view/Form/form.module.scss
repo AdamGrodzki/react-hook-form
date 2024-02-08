@@ -10,15 +10,16 @@
     
     .wrapper{
         display: flex;
-        align-items: end;
+        justify-content: center;
+        align-items: center;
         gap: 10px;
     }
     
     .wrapperDate {
     display: flex;
-    align-items: end;
+    justify-content: center;
+    align-items: flex-start;
     gap: 10px;
-    width: 75%;
     }
 
     .wrapperCVC {
