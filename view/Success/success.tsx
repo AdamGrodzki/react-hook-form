@@ -16,7 +16,6 @@ export const Success = () => {
       <header className={styles.header}>
         <h3 className={styles.heading}>Thank You!</h3>
         <p className={styles.successParagraph}>
-          {" "}
           We&apos;ve added your card details
         </p>
       </header>

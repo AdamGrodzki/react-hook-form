@@ -44,6 +44,7 @@ export const Form = () => {
             rules={{ required: true }}
           />
           <Input
+            label="(MM/YY)"
             placeholderText="YY"
             name="expDateYY"
             rules={{

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 import { BackCard } from "@/view/BackCard/backCard";
 import { FrontCard } from "@/view/FrontCard/frontCard";

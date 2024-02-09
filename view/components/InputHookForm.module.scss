@@ -26,7 +26,13 @@
     margin: 5px 0;
     &::placeholder {
         opacity: .25;
-    }    
+    }
+    &:focus {
+        box-shadow: 0 0 10px #719ECE;
+    }
+    &:invalid {
+        background-color: red;
+    }
 }
 
 .inputHookForm {

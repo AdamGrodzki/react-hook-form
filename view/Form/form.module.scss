@@ -8,26 +8,49 @@
     width: 445px;
     padding: 20px;
     
-    .wrapper{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
+    // .wrapper{
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     gap: 10px;
+    // }
     
-    .wrapperDate {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 10px;
-    }
+    // .wrapperDate {
+    // display: flex;
+    // justify-content: center;
+    // align-items: flex-start;
+    // gap: 10px;
+    // }
 
-    .wrapperCVC {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-    }
+    // .wrapperCVC {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: start;
+    // }
 }
+
+.wrapper, .wrapperDate, .wrapperCVC {
+  width: 100%;
+  gap: 10px;
+  display: flex;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.wrapperDate {
+    width: 60%;
+    display: flex;
+
+}
+
+.wrapperCVC {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
 
 // labels 
 .labelCardholderName {
@@ -85,7 +108,6 @@
     &:focus {
         box-shadow: 0 0 10px #719ECE;
         box-sizing: border-box;
-        // border-color: #ffaa2a;
     }
 }
 .inputCardNumber {
@@ -104,7 +126,6 @@
     &:focus {
         box-shadow: 0 0 10px #719ECE;
         box-sizing: border-box;
-        // border-color: #ffaa2a;
     }
 }
 .inputCVC {
@@ -123,7 +144,6 @@
     &:focus {
         box-shadow: 0 0 10px #719ECE;
         box-sizing: border-box;
-        // border-color: #ffaa2a;
     }
 }
 .expMM {
@@ -198,7 +218,6 @@
     border-color: #ff5252;
     background-color: #fbdae2;
     animation: shake .3s ease-in-out;
-
 
     &:focus {
     border-color: #ffaa2a;
