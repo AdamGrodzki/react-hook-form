@@ -1,9 +1,7 @@
 import * as React from "react";
-import {
-  useController,
-  UseControllerProps,
-} from "react-hook-form";
+import { useController, UseControllerProps } from "react-hook-form";
 import { IFormInput } from "@/app/page";
+import { clsx } from "clsx";
 
 import styles from "@/view/components/InputHookForm.module.scss";
 
@@ -22,15 +20,20 @@ export function Input(props: InputProps) {
     rules,
   });
 
+
   return (
     <div className={styles.inputHookForm}>
       <label className={styles.labelsForm}>{label}</label>
       <input
         {...field}
-        className={styles.inputsForm}
         placeholder={placeholderText}
+        className={clsx(styles.inputsForm, fieldState.error, {
+          [(styles.inputsForm, styles.invalid)]: fieldState.error,
+        })}
       />
-      <p className={styles.error}>{fieldState.error?.message}</p>
+      <p className={styles.error}>
+        {!fieldState.error?.message || fieldState.error?.message}
+      </p>
     </div>
   );
 }

@@ -53,7 +53,7 @@ export const Form = () => {
           />
         </div>
         <div className={styles.wrapperCVC}>
-          <Input
+          <Input 
             placeholderText="e.g. 123"
             label="cvc"
             name="cvc"
