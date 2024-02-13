@@ -28,7 +28,7 @@
         opacity: .25;
     }
     &:focus {
-        box-shadow: 0 0 10px #719ECE;
+        box-shadow: 0 0 10px $light-sky-blue;
     }
  
 }
@@ -38,7 +38,7 @@
 
 //error 
 .error {
-    color: #ff5252;
+    color: $red-error;
         font-size: 12px;
         line-height: 20px;
         font-weight: bold;
@@ -48,12 +48,12 @@
 }
 
 .invalid {
-  border-color: #ff5252;
+  border-color: $red-error;
   background-color: #fbdae2;
   animation: shake .3s ease-in-out;
 
   &:focus {
-  border-color: #ffaa2a;
+  border-color: $orange-border-focus;
   box-shadow: none;
 }
   @keyframes shake {
