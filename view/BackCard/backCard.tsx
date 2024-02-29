@@ -1,14 +1,15 @@
+import { IFormInput } from "@/app/page";
 import styles from "@/view/BackCard/backCard.module.scss";
+import { useFormContext } from "react-hook-form";
 
-interface Props {
-  cvc: number;
-}
+export const BackCard = () => {
+  const { watch } = useFormContext<IFormInput>();
+  const watchCvc = watch("cvc");
 
-export const BackCard = ({ cvc }: Props) => {
   return (
     <div className={styles.containerBackCard}>
       <div className={styles.backCard}>
-        <div className={styles.backCardCvc}>{cvc ? cvc : "000"}</div>
+        <div className={styles.backCardCvc}>{watchCvc ? watchCvc : "000"}</div>
       </div>
     </div>
   );

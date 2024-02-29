@@ -7,22 +7,30 @@
     align-items: center;
     width: 445px;
     padding: 20px;
-    
-    .wrapper{
-        display: flex;
-        align-items: flex-start;
-        margin: auto;
-    }
-    
-    .wrapperDate {
-    margin: 10px 0;
-    }
-
-    .wrapperCVC {
-        display: flex;
-        flex-direction: column;
-    }
 }
+
+.wrapper, .wrapperDate, .wrapperCVC {
+  width: 100%;
+  gap: 10px;
+  display: flex;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.wrapperDate {
+    width: 60%;
+    display: flex;
+
+}
+
+.wrapperCVC {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
 
 // labels 
 .labelCardholderName {
@@ -77,9 +85,9 @@
     &::placeholder {
         opacity: .25;
     }
-    &:focus-visible {
-        border: 1px solid #555;
-        box-shadow: 0 0 10px #719ECE;
+    &:focus {
+        box-shadow: 0 0 10px $light-sky-blue;
+        box-sizing: border-box;
     }
 }
 .inputCardNumber {
@@ -95,9 +103,9 @@
     &::placeholder {
         opacity: .25;
     }
-    &:focus-visible {
-        border: 1px solid #555;
-        box-shadow: 0 0 10px #719ECE;
+    &:focus {
+        box-shadow: 0 0 10px $light-sky-blue;
+        box-sizing: border-box;
     }
 }
 .inputCVC {
@@ -109,17 +117,13 @@
     height: 35px;
     outline: none;
     padding: 20px 10px;
-    width: 190px;
+    width: 40%;
     &::placeholder {
         opacity: .25;
     }
     &:focus {
-        border: 1px solid #555;
-        box-shadow: 0 0 10px #719ECE;
-        
-    }
-    &.error {
-        background-color: #ff5252;
+        box-shadow: 0 0 10px $light-sky-blue;
+        box-sizing: border-box;
     }
 }
 .expMM {
@@ -136,9 +140,9 @@
     &::placeholder {
         opacity: .25;
     }
-    &:focus-visible {
-        border: 1px solid #555;
-        box-shadow: 0 0 10px #719ECE;
+    &:focus {
+        box-shadow: 0 0 10px $light-sky-blue;
+        box-sizing: border-box;
     }
 }
 .expYY {
@@ -155,9 +159,12 @@
     &::placeholder {
         opacity: .25;
     }
-    &:focus-visible {
-        border: 1px solid #555;
-        box-shadow: 0 0 10px #719ECE;
+    &:focus {
+        box-shadow: 0 0 10px $light-sky-blue;
+        box-sizing: border-box;
+    }
+    .invalid {
+        border-color: #ff5252;
     }
 }
 // button 
@@ -187,48 +194,7 @@
     }
 }       
 
-.invalid{
-    border-color: #ff5252;
-    // background-color: #fbdae2;
-    animation: shake .3s ease-in-out;
-
-
-    &:focus {
-    border-color: orange;
-    border-width: 3px;
-    }
-}
-@keyframes shake {
-    0% {
-      transform: translate(1px, 1px) rotate(0deg);
-    }
-    20% {
-      transform: translate(-3px, 0px) rotate(1deg);
-    }
-    40% {
-      transform: translate(1px, -1px) rotate(1deg);
-    }
-    60% {
-      transform: translate(-3px, 1px) rotate(0deg);
-    }
-    90% {
-      transform: translate(1px, 2px) rotate(0deg);
-    }
-    100% {
-      transform: translate(1px, -2px) rotate(-1deg);
-    }
-  }
-
-// errors 
-.error{
-        color: #ff5252;
-        font-size: 12px;
-        line-height: 20px;
-        font-weight: bold;
-        width: 100%;
-        font-style: italic;
-        padding: 5px 0;
-}
+//media-query for breakpoint-sm size
 
 @media (max-width: $grid-breakpoints-sm) {
     .form {
@@ -250,4 +216,3 @@
         font-size: 15px;
     }
 }
-
