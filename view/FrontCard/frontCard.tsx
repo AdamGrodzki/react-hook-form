@@ -5,7 +5,7 @@ import { useFormContext } from "react-hook-form";
 import styles from "@/view/FrontCard/frontCard.module.scss";
 import { IFormInput } from "@/app/page";
 
-function displayCardNumber(number: string) {
+function displayCardNumber(number: any) {
   let newCardNumber = number + "0000000000000000";
   newCardNumber = newCardNumber.slice(0, 16);
   return `${newCardNumber.slice(0, 4)} ${newCardNumber.slice(4, 8)} 

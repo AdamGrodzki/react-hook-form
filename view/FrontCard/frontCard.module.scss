@@ -36,8 +36,6 @@
     .bottomCard {
         display: flex;
         justify-content: space-between;
-
-
         width: 100%;
         font-size: 28px;
     }
@@ -51,8 +49,12 @@
         color: $white;
         font-size: 18px;
     }
-    @media (max-width: $grid-breakpoints-sm) {
-        margin-top:  -156px;
-        margin-right: 80px;
+}
+
+@media (min-width: 321px) and  (max-width: 992px) {
+    .containerFrontCard {
+        margin-bottom: -100px;
+        margin-left: -190px;
+        margin-right: auto;
     }
 }

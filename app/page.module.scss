@@ -8,14 +8,6 @@
     background-image: url("../images/bg-main-desktop.png");
     background-repeat: no-repeat;
     background-size: contain;
-
-    @media (max-width: $grid-breakpoints-sm){
-        background-image: url("../images/bg-main-mobile.png");
-        display: flex;
-        flex-direction: column;
-        width: fit-content;
-        height: 100vh;
-    }
 }
 .cards {
     display: flex;
@@ -25,13 +17,6 @@
     justify-content: center;
     gap: 50px;
     padding-right: 30px;
-
-    @media (max-width: $grid-breakpoints-sm) {
-        display: flex;
-        flex-direction: column-reverse;
-        width: 100%;
-        padding: 20px 20px;
-    }
 }
 
 .form {
@@ -40,8 +25,66 @@
     flex-direction: column;    
     align-self: center;
     padding-top: 20px;
+}
+
+@media (max-width: 320px) {
+    .parent {
+    background-image: url("../images/bg-main-mobile.png");
+    width: fit-content;
+    align-items: start;
+
+    .cards {
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    .form {
+        width: fit-content;
+    }
+    }
     
-    @media (max-width: $grid-breakpoints-sm) {
-        margin: auto;
+}
+@media (min-width: 321px) and  (max-width: 992px) {
+    .parent {
+        background-image: url("../images/bg-main-mobile.png");
+        display: grid;
+        margin-bottom: 20px;
+        width: 105vh;
+        justify-items: center;
+    }
+    .cards {
+        flex-direction: column-reverse;
+        height: 100vw;
+    }
+    .form {
+        margin-top: 70px;
+        width: fit-content;
+        display: grid;
+        place-items: center ;
+    }
+}
+@media (min-width: 993px) and (max-width: 1260px) {
+.parent {
+    background-image: url("../images/bg-main-desktop.png");
+    flex-wrap: wrap;
+}
+.cards {
+    flex-wrap: wrap;
+
+}
+.form {
+    flex-wrap: wrap;
+}
+}
+@media (min-width: 1261px) {
+.parent {
+    background-color: url("../images/bg-main-desktop.png");
+    flex-wrap: wrap;
+}
+.cards {
+    flex-wrap: wrap;
 }
 }

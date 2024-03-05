@@ -2,8 +2,8 @@
 
 .containerBackCard {
     width: 447px;
-    height: 245px;
-    
+    height: 245px;    
+}
     .backCard {
         background-image: url("..//../images/bg-card-back.png");
         box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.1),
@@ -22,9 +22,22 @@
     color: $white;
     font-size: 17px;
 }
-@media (max-width: $grid-breakpoints-sm) {
-   display: flex;
-   justify-content: flex-end;
-   margin-top: 20px;
+@media (max-width: 320px) {
+    .containerBackCard {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-right: 0;
+    flex-wrap: wrap;
+    }
 }
+@media (min-width: 321px) and  (max-width: 992px) {
+    .containerBackCard {
+        display: grid;
+        place-items: center;
+        margin-right: -280px;
+        margin-bottom: -156px;
+        width: 447px;
+        height: 245px;
+    }
 }
