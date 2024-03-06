@@ -58,12 +58,14 @@
     .cards {
         flex-direction: column-reverse;
         height: 100vw;
+        width: 100vw;
+        align-items: flex-start;
     }
     .form {
         margin-top: 70px;
         width: fit-content;
         display: grid;
-        place-items: center ;
+        place-items: center;
     }
 }
 @media (min-width: 993px) and (max-width: 1260px) {

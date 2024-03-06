@@ -4,8 +4,8 @@
     border-radius: 20px;
     color: $white;
     height: 245px;
-    margin-right: 240px;
     width: 447px;
+    margin-right: 240px;
     padding: 25px;
     
     background-image: url("../../images//bg-card-front.png");
@@ -53,8 +53,9 @@
 
 @media (min-width: 321px) and  (max-width: 992px) {
     .containerFrontCard {
-        margin-bottom: -100px;
-        margin-left: -190px;
-        margin-right: auto;
+        width: 447px;
+        margin-right: 0;
+        height: 245px;
+
     }
 }

@@ -11,7 +11,7 @@ const handleExit = () => {
 export const Success = () => {
   return (
     <div className={styles.successContainer}>
-      <Image src={logoSuccess} alt="logo-success" height={80} width={80} />
+      <Image src={logoSuccess} alt="logo-success" className={styles.logoSuccess} />
 
       <header className={styles.header}>
         <h3 className={styles.heading}>Thank You!</h3>

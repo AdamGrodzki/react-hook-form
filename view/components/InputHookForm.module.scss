@@ -80,14 +80,17 @@
 
 @media (min-width: 321px) and (max-width: 992px) { 
   .inputHookForm {
-    padding: 10px;
-    gap: 10px;
+    padding: 5px;
   }
   .labelsForm {
-    font-size: 20px;
+    font-size: 24px;
   }
   .inputsForm {
-    font-size: 28px;
-    padding: 30px;
+    font-size: 32px;
+    padding: 38px;
+    margin-top: 12px;
+  }
+  .error {
+    font-size: 20px;
   }
 }
