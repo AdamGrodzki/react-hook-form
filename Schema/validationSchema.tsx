@@ -1,5 +1,7 @@
 import * as yup from "yup";
 
+const yesterday = new Date(Date.now() - 86400000);
+
 export const schema = yup.object().shape({
   cardHolderName: yup
     .string()
@@ -14,19 +16,18 @@ export const schema = yup.object().shape({
     .typeError("Wrong format, numbers only")
     .required("Number can't be blank"),
   expDateMM: yup
-    .number()
+    .string()
     .required("Month can't be blank")
     .typeError("Wrong format, numbers only")
     .min(1, "Month can't be less than 1")
     .max(12, "Month can't be more than 12"),
   expDateYY: yup
-    .number()
-    .nullable()
+    .string()
     .typeError("Wrong format, numbers only")
     .required("Year can't be blank")
-    .min(new Date().getFullYear() % 2000, "Invalid date")
-    .max(99, "Invalid date"),
-
+    // .min((new Date().getFullYear() % 2000), "Invalid date")
+    .matches(/^(20)\d{2}$/, 'Invalid year format'),
+    // .max(99, "Invalid date"),
   cvc: yup
     .string()
     .matches(/^[\d ]*$/, "cvc must contains 3 digits")
